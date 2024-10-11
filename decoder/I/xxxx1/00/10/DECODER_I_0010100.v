@@ -42,7 +42,7 @@ module DECODER_I_0010100(
         .In(XPT[2]),
         .notIn(notXPT[2]),
         .out0(_t0xx),
-        .out1(_t1xx),
+        .out1(_t1xx)
     );
 
     wire _nott0xx = _t0xx ~| _t0xx;
@@ -72,7 +72,7 @@ module DECODER_I_0010100(
         .In(ITABLE[0]),
         .notIn(notITABLE[0]),
         .out0(PC_I0),
-        .out1(PC_O0),
+        .out1(PC_O0)
     );
 
     DECODER_1bit_decoder d_0010100d_4(
@@ -80,7 +80,7 @@ module DECODER_I_0010100(
         .In(ITABLE[0]),
         .notIn(notITABLE[0]),
         .out0(PC_I1),
-        .out1(PC_O1),
+        .out1(PC_O1)
     );
 
     DECODER_1bit_decoder d_0010100d_5(
@@ -88,7 +88,7 @@ module DECODER_I_0010100(
         .In(ITABLE[0]),
         .notIn(notITABLE[0]),
         .out0(PC_I2),
-        .out1(PC_O2),
+        .out1(PC_O2)
     );
 
     DECODER_1bit_decoder d_0010100d_6(
@@ -96,7 +96,7 @@ module DECODER_I_0010100(
         .In(ITABLE[0]),
         .notIn(notITABLE[0]),
         .out0(PC_I3),
-        .out1(PC_O3),
+        .out1(PC_O3)
     );
 
     // 3~6

@@ -49,7 +49,7 @@ module DECODER_op_XIX_11100011(
         .In(XPT[4]),
         .notIn(notXPT[4]),
         .out0(_t0xxxx),
-        .out1(_t1xxxx),
+        .out1(_t1xxxx)
     );
 
     wire _nott0xxxx = _t0xxxx ~| _t0xxxx;

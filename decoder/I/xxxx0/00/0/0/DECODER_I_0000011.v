@@ -33,7 +33,7 @@ module DECODER_I_0000011(
         .In(ITABLE[0]),
         .notIn(notITABLE[0]),
         .out0(_0),
-        .out1(_1),
+        .out1(_1)
     );
 
     assign PR_Reset_XPT = enable;

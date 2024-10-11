@@ -34,7 +34,7 @@ module FLIPFLOP_TNMI(
         .notQ(_notDelayedNMI)
     );
 
-    FLIPFLOP_dff int(
+    FLIPFLOP_dff nmi_(
         .Clk(Clk),
         .notClk(notClk),
         .notD(_TNMI_new_notTNMI),

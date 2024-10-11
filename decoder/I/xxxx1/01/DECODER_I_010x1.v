@@ -44,7 +44,7 @@ module DECODER_I_010x1(
         .In(ITABLE[4]),
         .notIn(notITABLE[4]),
         .out0(_0),
-        .out1(_1),
+        .out1(_1)
     );
 
     wire _not0 = _0 ~| _0;
@@ -57,7 +57,7 @@ module DECODER_I_010x1(
         .In(ITABLE[2]),
         .notIn(notITABLE[2]),
         .out0(_010010xx),
-        .out1(_010011xx),
+        .out1(_010011xx)
     );
 
     wire _not010010xx = _010010xx ~| _010010xx;

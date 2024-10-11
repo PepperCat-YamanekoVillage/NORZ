@@ -80,7 +80,7 @@ module DECODER_C(
         output wire PC_MR,
         output wire PD_Source_Dtcs,
         output wire PC_MA,
-        output wire not_decodingOut,
+        output wire not_decodingOut
     );
 
     // wire [4:0] notXPT = ~XPT;

@@ -42,7 +42,7 @@ module DECODER_I_00101x1(
         .In(ITABLE[0]),
         .notIn(notITABLE[0]),
         .out0(_0),
-        .out1(_1),
+        .out1(_1)
     ); 
 
     wire _not0 = _0 ~| _0;
@@ -52,7 +52,7 @@ module DECODER_I_00101x1(
         .In(ITABLE[2]),
         .notIn(notITABLE[2]),
         .out0(P2_Set_ILDlnnlIX_1),
-        .out1(P2_Set_ILDlnnlIY_1),
+        .out1(P2_Set_ILDlnnlIY_1)
     ); 
 
     //
@@ -111,7 +111,7 @@ module DECODER_I_00101x1(
         .In(ITABLE[2]),
         .notIn(notITABLE[2]),
         .out0(PI_SelectDt_IX_low),
-        .out1(PI_SelectDt_IY_low),
+        .out1(PI_SelectDt_IY_low)
     ); 
 
     // 6~8
@@ -123,7 +123,7 @@ module DECODER_I_00101x1(
         .In(ITABLE[2]),
         .notIn(notITABLE[2]),
         .out0(PI_SelectDt_IX_high),
-        .out1(PI_SelectDt_IY_high),
+        .out1(PI_SelectDt_IY_high)
     ); 
 
     wire _6_8 = _not6_8 ~| _not6_8;

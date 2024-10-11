@@ -148,9 +148,6 @@ module DECODER_I_10000(
     wire _not10000110 = _10000110 ~| _10000110;
     wire _not10000111 = _10000111 ~| _10000111;
 
-    wire _4or5;
-    wire _6or7;
-
     assign PC_W0 = (_decodedXPT[3] | _decodedXPT[6]); // 2
     assign PC_W1 = (_decodedXPT[4] | _decodedXPT[7]); // 2
     assign PC_W2 = (_decodedXPT[5] | _decodedXPT[8]); // 2

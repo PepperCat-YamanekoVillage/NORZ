@@ -148,7 +148,7 @@ module REGISTER_16bit_inc(
         .In(In[15]),
         .notIn(notIn[15]),
         .Cin(_CY14),
-        .S(Out[15]),
+        .S(Out[15])
     );
-
+    
 endmodule

@@ -1,4 +1,4 @@
-// 3(3834)
+// 3(3831)
 module REGISTER(
         input wire Clk,
         input wire notClk,
@@ -15,7 +15,6 @@ module REGISTER(
         input wire isResult0,
         input wire DAA_Flag_H,
         input wire IFF2,
-        input wire CINT,
         input wire is16bitEqual,
         input wire is8bitOverflow,
         input wire notIs8bitEvenParity,
@@ -197,7 +196,6 @@ module REGISTER(
         .isResult0(isResult0),
         .DAA_Flag_H(DAA_Flag_H),
         .IFF2(IFF2),
-        .CINT(CINT),
         .is16bitEqual(is16bitEqual),
         .is8bitOverflow(is8bitOverflow),
         .notIs8bitEvenParity(notIs8bitEvenParity),

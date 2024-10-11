@@ -266,7 +266,6 @@ module DECODER(
         output wire PF_Select_Z_bit47,
         output wire PA_Select_0x2_low,
         output wire PA_Select_0x4_low,
-        output wire PA_Select_0x20_low,
         output wire PA_Select_0x40_low,
         output wire PA_Select_0x80_low,
         output wire P2_Set_XIX4_1,
@@ -446,8 +445,11 @@ module DECODER(
         output wire P2_Set_IANDn,
         output wire P2_Set_IXORn,
         output wire P2_Set_IORn,
-        output wire P2_Set_ICPn
+        output wire P2_Set_ICPn,
+        output wire debugPa_Ophd
     );
+
+    assign debugPa_Ophd = ~_notPa_ophd;
 
     // wire notClk = ~Clk;
     // wire [4:0] notXPT = ~XPT;
@@ -660,7 +662,7 @@ module DECODER(
         .PC_MR(_PC_MR_dc),
         .PD_Source_Dtcs(_PD_Source_Dtcs_dc),
         .PC_MA(_PC_MA_dc),
-        .not_decodingOut(_not_decodingOut_dc),
+        .not_decodingOut(_not_decodingOut_dc)
     );
 
     wire _PC_M1 = (_PC_M1_pohd | _PC_M1_dc); // 2
@@ -872,7 +874,7 @@ module DECODER(
         .Flag_Z(Flag_Z),
         .notIsResultLow0(notIsResultLow0),
         .OP7(OP[7]),
-        .notOP7(_notOP7[7]),
+        .notOP7(~OP[7]),
         .Flag_PV(Flag_PV),
         .Flag_S(Flag_S),
         .not_decodingOut(_not_decodingOut_di),

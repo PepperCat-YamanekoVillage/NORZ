@@ -173,46 +173,46 @@ module INTERFACE(
 
     INTERFACE_out2 BUSAK(
         .notPI_Flag(notPI_Flag_BUSAK),
-        .interface(interfaceBUSAK)
+        .interface_out(interfaceBUSAK)
     );
 
     INTERFACE_out2 RFSH(
         .notPI_Flag(notPI_Flag_RFSH),
-        .interface(interfaceRFSH)
+        .interface_out(interfaceRFSH)
     );
 
     INTERFACE_out2 M1(
         .notPI_Flag(notPI_Flag_M1),
-        .interface(interfaceM1)
+        .interface_out(interfaceM1)
     );
 
     INTERFACE_out2 HALT(
         .notPI_Flag(notPI_Flag_HALT),
-        .interface(interfaceHALT)
+        .interface_out(interfaceHALT)
     );
 
     INTERFACE_out3 MREQ(
         .PI_Nullify(PI_Nullify_MREQ),
         .notPI_Flag(notPI_Flag_MREQ),
-        .interface(interfaceMREQ)
+        .interface_out(interfaceMREQ)
     );
 
     INTERFACE_out3 RD(
         .PI_Nullify(PI_Nullify_RD),
         .notPI_Flag(notPI_Flag_RD),
-        .interface(interfaceRD)
+        .interface_out(interfaceRD)
     );
 
     INTERFACE_out3 WR(
         .PI_Nullify(PI_Nullify_WR),
         .notPI_Flag(notPI_Flag_WR),
-        .interface(interfaceWR)
+        .interface_out(interfaceWR)
     );
 
     INTERFACE_out3 IORQ(
         .PI_Nullify(PI_Nullify_IORQ),
         .notPI_Flag(notPI_Flag_IORQ),
-        .interface(interfaceIORQ)
+        .interface_out(interfaceIORQ)
     );
 
 endmodule

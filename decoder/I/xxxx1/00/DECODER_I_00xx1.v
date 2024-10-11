@@ -89,7 +89,7 @@ module DECODER_I_00xx1(
         .In(ITABLE[5]),
         .notIn(notITABLE[5]),
         .out0(_000x1xxx),
-        .out1(_001x1xxx),
+        .out1(_001x1xxx)
     );
 
     wire _not001x1xxx = _001x1xxx ~| _001x1xxx;
@@ -102,7 +102,7 @@ module DECODER_I_00xx1(
         .In(ITABLE[4]),
         .notIn(notITABLE[4]),
         .out0(_00101xxx),
-        .out1(_00111xxx),
+        .out1(_00111xxx)
     );
 
     wire _PR_Reset_XPT_0x;

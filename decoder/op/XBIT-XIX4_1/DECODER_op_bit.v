@@ -70,7 +70,7 @@ module DECODER_op_bit(
         .out10(_RES),
         .out11(_SET),
         .out0x(_RRRBIT),
-        .out1x(_RESSET),
+        .out1x(_RESSET)
     );
 
     assign PF_Write_Z = _RRRBIT;

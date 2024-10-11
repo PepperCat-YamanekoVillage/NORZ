@@ -3,7 +3,7 @@ module INTERFACE_half_adder(
         input wire notIn,
         input wire Cin,
         output wire S,
-        output wire Cout,
+        output wire Cout
     );
 
     wire _In = notIn ~| notIn;

@@ -1,4 +1,4 @@
-// (88)
+// (87)
 module FLIPFLOP_T(
         input wire Clk,
         input wire notClk,
@@ -9,7 +9,6 @@ module FLIPFLOP_T(
         input wire notIFF1,
         input wire P2_Reset_TINT,
         input wire P2_Reset_TNMI,
-        input wire P2_Reset_TRSET,
         input wire P2_Reset_ALLUNOFFICIALFF,
         output wire TINT,
         output wire TNMI,
@@ -40,7 +39,6 @@ module FLIPFLOP_T(
         .Clk(Clk),
         .notClk(notClk),
         .RESET(RESET),
-        .P2_Reset_TRSET(P2_Reset_TRSET),
         .P2_Reset_ALLUNOFFICIALFF(P2_Reset_ALLUNOFFICIALFF),
         .TRESET(TRESET)
     );

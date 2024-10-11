@@ -52,7 +52,7 @@ module DECODER_op_XOTR_01xxx10(
         .In(Source[0]),
         .notIn(notSource[0]),
         .out0(_01xxx100),
-        .out1(_01xxx101),
+        .out1(_01xxx101)
     );
 
     wire _PR_Reset_XPT_0; // <

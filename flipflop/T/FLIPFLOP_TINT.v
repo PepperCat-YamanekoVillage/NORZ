@@ -36,7 +36,7 @@ module FLIPFLOP_TINT(
         .notQ(_notDelayedINT)
     );
 
-    FLIPFLOP_dff int(
+    FLIPFLOP_dff int_(
         .Clk(Clk),
         .notClk(notClk),
         .notD(_TINT_new_notTINT),

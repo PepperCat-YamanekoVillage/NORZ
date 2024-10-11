@@ -64,7 +64,7 @@ module DECODER_I_00011101(
         .In(XPT[0]),
         .notIn(notXPT[0]),
         .out0(_decodedXPT[8]),
-        .out1(_decodedXPT[9]),
+        .out1(_decodedXPT[9])
     );
 
     // 3or6

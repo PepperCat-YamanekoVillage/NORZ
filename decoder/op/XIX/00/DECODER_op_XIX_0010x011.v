@@ -63,7 +63,7 @@ module DECODER_op_XIX_0010x011(
         .In(Source[3]),
         .notIn(notSource[3]),
         .out0(PA_ADD),
-        .out1(PA_SUB),
+        .out1(PA_SUB)
     ); 
 
 endmodule

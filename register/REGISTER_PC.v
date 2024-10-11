@@ -12,7 +12,7 @@ module REGISTER_PC(
     );
 
     // wire Clk = clk;
-    // wire notClk = ~clk;
+    // wire notClk = ~Clk;
 
     wire _notPR_Write_high = PR_Write_PC_high ~| PR_Write_PC_high;
     wire _notPR_Write_low = PR_Write_PC_low ~| PR_Write_PC_low;

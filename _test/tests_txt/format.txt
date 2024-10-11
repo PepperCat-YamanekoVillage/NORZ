@@ -1,0 +1,70 @@
+op [wanted_Result0,wanted_Result1,...] // comment
+
+A
+F
+B
+C
+D
+E
+H
+L
+PC
+SP
+IX
+IY
+I
+R
+Dt
+Dtex
+Dtcs
+OP
+OPold
+XPT
+ITBLE
+ALU
+IFF1
+IFF2
+IMFa
+IMFb
+TINT
+TNMI
+TWAIT
+TRESET
+XIX
+XIX40
+XIX41
+XIY
+XIY40
+XIY41
+XOTR
+XBIT
+CM1
+CMR
+CMA
+CBUSRQ
+CRESET
+CNMI
+CINT0
+CINT0R
+CINT0C
+CINT1
+CINT2
+FlagS
+FlagZ
+FlagH
+FlagPV
+FlagN
+FlagC
+
+
+// example
+--------------------------------------------------
+00 000 110 // LD B,0
+00 000 000 [B=00 000 000]
+
+00 001 110 // LD C,0x1f
+00 011 111 [C=00 011 111]
+
+01 000 001 [B=00 011 111,C=00 011 111] // LD B,C
+
+ff fff fff

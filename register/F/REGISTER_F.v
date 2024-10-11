@@ -1,4 +1,4 @@
-// 11(256)
+// 11(253)
 module REGISTER_F(
         // input wire clk,
         input wire Clk,
@@ -17,7 +17,6 @@ module REGISTER_F(
         input wire isResult0,
         input wire DAA_Flag_H,
         input wire IFF2,
-        input wire CINT,
         input wire is16bitEqual,
         input wire is8bitOverflow,
         input wire notIs8bitEvenParity,
@@ -204,7 +203,6 @@ module REGISTER_F(
         .notShadowF_PV(notShadowF[2]),
         .notALUResult2(notALUResult[2]),
         .IFF2(IFF2),
-        .CINT(CINT),
         .is16bitEqual(is16bitEqual),
         .is8bitOverflow(is8bitOverflow),
         .notIs8bitEvenParity(notIs8bitEvenParity),

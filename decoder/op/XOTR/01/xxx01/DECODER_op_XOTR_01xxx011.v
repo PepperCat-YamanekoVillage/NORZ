@@ -48,7 +48,7 @@ module DECODER_op_XOTR_01xxx011(
         .In(Source[3]),
         .notIn(notSource[3]),
         .out0(_01xx0011),
-        .out1(_01xx1011),
+        .out1(_01xx1011)
     ); 
 
     wire _not01xx0011 = _01xx0011 ~| _01xx0011;

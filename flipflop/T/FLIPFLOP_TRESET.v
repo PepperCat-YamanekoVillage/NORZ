@@ -1,12 +1,13 @@
-// 8(35)
+// 7(34)
 module FLIPFLOP_TRESET(
         input wire Clk,
         input wire notClk,
         input wire RESET,
-        input wire P2_Reset_TRSET,
         input wire P2_Reset_ALLUNOFFICIALFF,
         output wire TRESET
     );
+
+    // wire notClk = ~Clk;
 
     wire _TRESET0;
     wire _notTRESET0;
@@ -33,14 +34,13 @@ module FLIPFLOP_TRESET(
         .notQ(_notTRESET1)
     );
 
-    wire _not_Reset_TRESET = P2_Reset_TRSET ~| P2_Reset_ALLUNOFFICIALFF;
-    wire _Reset_TRESET = _not_Reset_TRESET ~| _not_Reset_TRESET;
-
-    wire _new_TRESET2_in = _TRESET1 ~| RESET;
     wire _new_not_TRESET2_in = _TRESET1 ~| RESET;
     wire _new_TRESET2_inold = _new_not_TRESET2_in ~| _notTRESET2;
 
-    wire _new_not_TRESET2 = _new_TRESET2_inold ~| _Reset_TRESET;
+    wire _notP2_Reset_ALLUNOFFICIALFF = P2_Reset_ALLUNOFFICIALFF ~| P2_Reset_ALLUNOFFICIALFF;
+    wire _killedP2_Reset_ALLUNOFFICIALFF = _notP2_Reset_ALLUNOFFICIALFF ~| _notRESET;
+
+    wire _new_not_TRESET2 = _new_TRESET2_inold ~| _killedP2_Reset_ALLUNOFFICIALFF;
 
     FLIPFLOP_dff treset2(
         .Clk(Clk),

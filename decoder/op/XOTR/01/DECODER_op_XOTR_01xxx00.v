@@ -86,7 +86,7 @@ module DECODER_op_XOTR_01xxx00(
         .In(Source[5]),
         .notIn(notSource[5]),
         .out0(_010xx001_t4_7),
-        .out1(_011xx001_t4_7),
+        .out1(_011xx001_t4_7)
     );
 
     wire _not010xx001_t4_7 = _010xx001_t4_7 ~| _010xx001_t4_7;
@@ -130,7 +130,7 @@ module DECODER_op_XOTR_01xxx00(
         .In(Source[0]),
         .notIn(notSource[0]),
         .out0(_01xxx000_t4),
-        .out1(_01xxx001_t4),
+        .out1(_01xxx001_t4)
     );
 
     DECODER_1bit_decoder d_01xxx00d_t5(
@@ -138,7 +138,7 @@ module DECODER_op_XOTR_01xxx00(
         .In(Source[0]),
         .notIn(notSource[0]),
         .out0(_01xxx000_t5),
-        .out1(_01xxx001_t5),
+        .out1(_01xxx001_t5)
     );
 
     DECODER_1bit_decoder d_01xxx00d_t6(
@@ -146,7 +146,7 @@ module DECODER_op_XOTR_01xxx00(
         .In(Source[0]),
         .notIn(notSource[0]),
         .out0(_01xxx000_t6),
-        .out1(_01xxx001_t6),
+        .out1(_01xxx001_t6)
     );
 
     DECODER_1bit_decoder d_01xxx00d_t7(
@@ -154,7 +154,7 @@ module DECODER_op_XOTR_01xxx00(
         .In(Source[0]),
         .notIn(notSource[0]),
         .out0(_01xxx000_t7),
-        .out1(_01xxx001_t7),
+        .out1(_01xxx001_t7)
     );
 
     wire _not01xxx000_t7 = _01xxx000_t7 ~| _01xxx000_t7;
@@ -167,7 +167,7 @@ module DECODER_op_XOTR_01xxx00(
         .In(Source[3]),
         .notIn(notSource[3]),
         .out0(_01xx0000_t7),
-        .out1(_01xx1000_t7),
+        .out1(_01xx1000_t7)
     );
 
     wire _not01xx0000_t7 = _01xx0000_t7 ~| _01xx0000_t7;

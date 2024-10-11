@@ -24,8 +24,8 @@ module DECODER_op_X1_11xxx000(
         output wire PR_InvertIn // >
     );
 
-    wire [4:0] notXPT = ~XPT;
-    wire [7:0] notSource = ~Source;
+    // wire [4:0] notXPT = ~XPT;
+    // wire [7:0] notSource = ~Source;
 
     //
     // XPT

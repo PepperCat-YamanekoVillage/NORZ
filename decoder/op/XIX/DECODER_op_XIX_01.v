@@ -80,7 +80,7 @@ module DECODER_op_XIX_01(
         .In(Source[3]),
         .notIn(notSource[3]),
         .out0(_01xx0xxx_X),
-        .out1(_01xx1xxx_X),
+        .out1(_01xx1xxx_X)
     );
 
     wire _not01xx0xxx_X = _01xx0xxx_X ~| _01xx0xxx_X;
@@ -118,7 +118,7 @@ module DECODER_op_XIX_01(
         .In(Source[2]),
         .notIn(notSource[2]),
         .out0(_011100xx_X),
-        .out1(_011101xx_X),
+        .out1(_011101xx_X)
     );
 
     wire _not011100xx_X = _011100xx_X ~| _011100xx_X;
@@ -153,7 +153,7 @@ module DECODER_op_XIX_01(
         .In(Source[3]),
         .notIn(notSource[3]),
         .out0(_01xx0xxx_Y),
-        .out1(_01xx1xxx_Y),
+        .out1(_01xx1xxx_Y)
     );
 
     wire _not01xx0xxx_Y = _01xx0xxx_Y ~| _01xx0xxx_Y;
@@ -191,7 +191,7 @@ module DECODER_op_XIX_01(
         .In(Source[2]),
         .notIn(notSource[2]),
         .out0(_011100xx_Y),
-        .out1(_011101xx_Y),
+        .out1(_011101xx_Y)
     );
 
     wire _not011100xx_Y = _011100xx_Y ~| _011100xx_Y;

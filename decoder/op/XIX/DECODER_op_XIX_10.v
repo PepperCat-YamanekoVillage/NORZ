@@ -68,7 +68,7 @@ module DECODER_op_XIX_10(
         .In(Source[3]),
         .notIn(notSource[3]),
         .out0(_10xx0110_X),
-        .out1(_10xx1110_X),
+        .out1(_10xx1110_X)
     );
 
     wire _not10xx0110_X = _10xx0110_X ~| _10xx0110_X;
@@ -104,7 +104,7 @@ module DECODER_op_XIX_10(
         .In(Source[3]),
         .notIn(notSource[3]),
         .out0(_10xx0110_Y),
-        .out1(_10xx1110_Y),
+        .out1(_10xx1110_Y)
     );
 
     wire _not10xx0110_Y = _10xx0110_Y ~| _10xx0110_Y;

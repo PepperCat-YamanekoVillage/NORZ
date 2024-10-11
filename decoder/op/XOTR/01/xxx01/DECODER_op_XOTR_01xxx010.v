@@ -80,7 +80,7 @@ module DECODER_op_XOTR_01xxx010(
         .In(Source[3]),
         .notIn(notSource[3]),
         .out0(_01xx0010),
-        .out1(_01xx1010),
+        .out1(_01xx1010)
     );
 
     assign PA_SBC = _01xx0010;

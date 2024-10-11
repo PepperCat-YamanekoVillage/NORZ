@@ -1,4 +1,4 @@
-// 21(36)
+// 18(33)
 module REGISTER_F_PV(
         // input wire clk,
         input wire Clk,
@@ -6,7 +6,6 @@ module REGISTER_F_PV(
         input wire notShadowF_PV,
         input wire notALUResult2,
         input wire IFF2,
-        input wire CINT,
         input wire is16bitEqual,
         input wire is8bitOverflow,
         input wire notIs8bitEvenParity,
@@ -44,17 +43,12 @@ module REGISTER_F_PV(
     wire _notIs8bitOverflow = is8bitOverflow ~| is8bitOverflow;
     wire _notIs16bitOverflow = is16bitOverflow ~| is16bitOverflow;
 
-    // nand
-
     wire _notIFF2 = IFF2 ~| IFF2;
-    wire _notCINT = CINT ~| CINT;
-    wire _and = _notIFF2 ~| _notCINT;
-    wire _nand = _and ~| _and;
 
     // and
 
     wire _new_PV = notF_PV ~| PF_Write_PV;
-    wire _new_IFF2CINT = _nand ~| _notPF_Select_PV_bit18;
+    wire _new_IFF2CINT = _notIFF2 ~| _notPF_Select_PV_bit18;
     wire _new_is16bitEqual = is16bitEqual ~| _notPF_Select_PV_bit20;
     wire _new_is8bitOverflow = _notIs8bitOverflow ~| _notPF_Select_PV_bit25;
     wire _new_is8bitEvenParity = notIs8bitEvenParity ~| _notPF_Select_PV_bit27;

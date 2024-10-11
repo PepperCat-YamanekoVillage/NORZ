@@ -1,4 +1,4 @@
-// (1708)
+// (1707)
 module FLIPFLOP(
         input wire Clk,
         input wire notClk,
@@ -17,7 +17,6 @@ module FLIPFLOP(
         input wire WAIT,
         input wire P2_Reset_TINT,
         input wire P2_Reset_TNMI,
-        input wire P2_Reset_TRSET,
         input wire P2_Set_LHALT,
         input wire P2_Reset_LHALT,
         input wire P2_Set_CM1,
@@ -250,7 +249,7 @@ module FLIPFLOP(
         output wire [7:0] notITABLE
     );
 
-    FLIPFLOP_IFF iff(
+    FLIPFLOP_IFF iff_(
         .Clk(Clk),
         .notClk(notClk),
         .P2_Set_IFF1(P2_Set_IFF1),
@@ -283,7 +282,6 @@ module FLIPFLOP(
         .notIFF1(notIFF1),
         .P2_Reset_TINT(P2_Reset_TINT),
         .P2_Reset_TNMI(P2_Reset_TNMI),
-        .P2_Reset_TRSET(P2_Reset_TRSET),
         .P2_Reset_ALLUNOFFICIALFF(P2_Reset_ALLUNOFFICIALFF),
         .TINT(TINT),
         .TNMI(TNMI),

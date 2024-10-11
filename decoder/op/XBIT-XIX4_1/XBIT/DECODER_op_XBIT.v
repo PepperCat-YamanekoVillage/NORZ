@@ -77,7 +77,7 @@ module DECODER_op_XBIT(
         .In(XPT[0]),
         .notIn(notXPT[0]),
         .out0(_decodedXPT[2]),
-        .out1(_decodedXPT[3]),
+        .out1(_decodedXPT[3])
     );
 
     DECODER_2bit_decoder t_01dd( // 8

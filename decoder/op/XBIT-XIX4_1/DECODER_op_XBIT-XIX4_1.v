@@ -210,7 +210,7 @@ module DECODER_op_XBIT_XIX4_1(
 
     wire _enable_bit = (_enable_bit_XBIT | _enable_bit_XIX4); // 2
 
-    DECODER_op_bit bit(
+    DECODER_op_bit bit_(
         .enable(_enable_bit),
         .Source(Source),
         .notSource(notSource),

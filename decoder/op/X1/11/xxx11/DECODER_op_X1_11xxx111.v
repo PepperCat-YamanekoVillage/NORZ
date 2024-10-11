@@ -29,8 +29,8 @@ module DECODER_op_X1_11xxx111(
         output wire PA_Select_0x38_low
     );
 
-    wire [4:0] notXPT = ~XPT;
-    wire [7:0] notSource = ~Source;
+    // wire [4:0] notXPT = ~XPT;
+    // wire [7:0] notSource = ~Source;
 
     //
     // XPT

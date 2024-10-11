@@ -42,7 +42,7 @@ module DECODER_op_XOTR_0100x111(
         .In(Source[3]),
         .notIn(notSource[3]),
         .out0(_I),
-        .out1(_R),
+        .out1(_R)
     );
 
     assign PR_Reset_XPT = _decodedXPT4;

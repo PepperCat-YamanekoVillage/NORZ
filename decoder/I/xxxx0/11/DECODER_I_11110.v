@@ -55,7 +55,7 @@ module DECODER_I_11110(
         .In(ITABLE[2]),
         .notIn(notITABLE[2]),
         .out0(_110000xx),
-        .out1(_110001xx),
+        .out1(_110001xx)
     ); 
 
     wire _not110000xx = _110000xx ~| _110000xx;

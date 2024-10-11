@@ -44,7 +44,7 @@ module DECODER_I_11111x1x(
         .In(ITABLE[0]),
         .notIn(notITABLE[0]),
         .out0(_0),
-        .out1(_1),
+        .out1(_1)
     );
 
     //
@@ -61,7 +61,7 @@ module DECODER_I_11111x1x(
         .In(XPT[2]),
         .notIn(notXPT[2]),
         .out0(_t0xx),
-        .out1(_t1xx),
+        .out1(_t1xx)
     );
 
     wire _nott0xx = _t0xx ~| _t0xx;
@@ -89,7 +89,7 @@ module DECODER_I_11111x1x(
         .In(ITABLE[2]),
         .notIn(notITABLE[2]),
         .out0(P2_Set_ILDlIXtdln_1),
-        .out1(P2_Set_ILDlIYtdln_1),
+        .out1(P2_Set_ILDlIYtdln_1)
     );
 
     assign P2_Set_CMR = _0;
@@ -109,7 +109,7 @@ module DECODER_I_11111x1x(
         .In(ITABLE[2]),
         .notIn(notITABLE[2]),
         .out0(PA_Select_IX_high),
-        .out1(PA_Select_IY_high),
+        .out1(PA_Select_IY_high)
     );
 
     assign PA_Select_OPold_low = _decodedXPT[3];

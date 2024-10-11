@@ -86,7 +86,7 @@ module DECODER_op_XOTR_0110x111(
         .In(XPT[0]),
         .notIn(notXPT[0]),
         .out0(_decodedXPT[12]),
-        .out1(_decodedXPT[13]),
+        .out1(_decodedXPT[13])
     );
 
     // 4
@@ -129,7 +129,7 @@ module DECODER_op_XOTR_0110x111(
         .In(Source[3]),
         .notIn(notSource[3]),
         .out0(PA_RRD),
-        .out1(PA_RLD),
+        .out1(PA_RLD)
     );
 
     // 11

@@ -4,7 +4,7 @@ module DECODER_1bit_decoder(
         input wire In,
         input wire notIn,
         output wire out0,
-        output wire out1,
+        output wire out1
     );
 
     // wire notIn = ~In;

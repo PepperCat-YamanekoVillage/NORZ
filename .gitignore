@@ -3,5 +3,10 @@
 *.vcd
 *.bkp
 *.dtmp
-.debug/*
 _debug/*
+_test/.venv/*
+_test/.result/*
+_test/sim_build/*
+_test/__pycache__/*
+_test/results.xml
+_test/log.txt

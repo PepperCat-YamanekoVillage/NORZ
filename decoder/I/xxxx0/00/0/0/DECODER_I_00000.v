@@ -69,7 +69,7 @@ module DECODER_I_00000(
         .In(ITABLE[0]),
         .notIn(notITABLE[0]),
         .out0(_00000000),
-        .out1(_00000001),
+        .out1(_00000001)
     );
 
     assign not_is00000000 = _00000000 ~| _00000000;

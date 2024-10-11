@@ -120,7 +120,7 @@ module DECODER_op_XOTR_101xx001(
         .In(Source[3]),
         .notIn(notSource[3]),
         .out0(PA_ADD),
-        .out1(_PA_SUB),
+        .out1(_PA_SUB)
     );
 
     assign PA_SUB = (_PA_SUB | _decodedXPT[7] | _decodedXPT[8]); // 4

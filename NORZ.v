@@ -1,4 +1,4 @@
-// 107(13740)
+// 112(13741)
 module NORZ(
         output wire [15:0] interfaceAd,
         // 本当はinterfaceDt_inとinterfaceDt_outはinoutで同一だけどdigitalJSがエラーおこすので分けている
@@ -23,53 +23,136 @@ module NORZ(
         //
         // for debug
         //
-        output wire [7:0] _A,
-        output wire [7:0] _F,
-        output wire [7:0] _B,
-        output wire [7:0] _C,
-        output wire [7:0] _D,
-        output wire [7:0] _E,
-        output wire [7:0] _H,
-        output wire [7:0] _L,
-        output wire [15:0] _PC,
-        output wire [15:0] _SP,
-        output wire [15:0] _IX,
-        output wire [15:0] _IY,
-        output wire [7:0] _I,
-        output wire [7:0] _Dt,
-        output wire [7:0] _Dtex,
-        output wire [7:0] _Dtcs,
-        output wire [7:0] _OP,
-        output wire [7:0] _OPold,
-        output wire [7:0] _R,
-        output wire [4:0] _XPT,
-        output wire [7:0] _ITABLE,
-        output wire [15:0] _ALU
+        output wire [7:0] debugA,
+        output wire [7:0] debugF,
+        output wire [7:0] debugB,
+        output wire [7:0] debugC,
+        output wire [7:0] debugD,
+        output wire [7:0] debugE,
+        output wire [7:0] debugH,
+        output wire [7:0] debugL,
+        output wire [15:0] debugPC,
+        output wire [15:0] debugSP,
+        output wire [15:0] debugIX,
+        output wire [15:0] debugIY,
+        output wire [7:0] debugI,
+        output wire [7:0] debugDt,
+        output wire [7:0] debugDtex,
+        output wire [7:0] debugDtcs,
+        output wire [7:0] debugOP,
+        output wire [7:0] debugOPold,
+        output wire [7:0] debugR,
+        output wire [4:0] debugXPT,
+        output wire [7:0] debugITABLE,
+        output wire [15:0] debugALU,
+        output wire debugIFF1,
+        output wire debugIFF2,
+        output wire debugIMFa,
+        output wire debugIMFb,
+        output wire debugTINT,
+        output wire debugTNMI,
+        output wire debugTWAIT,
+        output wire debugTRESET,
+        output wire debugXIX,
+        output wire debugXIX4_0,
+        output wire debugXIX4_1,
+        output wire debugXIY,
+        output wire debugXIY4_0,
+        output wire debugXIY4_1,
+        output wire debugXOTR,
+        output wire debugXBIT,
+        output wire debugCM1,
+        output wire debugCMR,
+        output wire debugCMA,
+        output wire debugCBUSRQ,
+        output wire debugCRESET,
+        output wire debugCNMI,
+        output wire debugCINT0,
+        output wire debugCINT0_RST,
+        output wire debugCINT0_CALL,
+        output wire debugCINT1,
+        output wire debugCINT2,
+        output wire debugPa_Ophd,
+        // for debug sub
+        // alu
+        output wire PA_ADD,
+        output wire PA_ADC,
+        output wire PA_SUB,
+        output wire PA_SBC,
+        output wire PA_NOT,
+        output wire PA_AND,
+        output wire PA_NLAND,
+        output wire PA_NOP,
+        output wire PA_OR,
+        output wire PA_XOR,
+        output wire PA_RLC,
+        output wire PA_RL,
+        output wire PA_SLA,
+        output wire PA_RRC,
+        output wire PA_RR,
+        output wire PA_SRA,
+        output wire PA_SRL,
+        output wire PA_RLD,
+        output wire PA_RRD,
+        // reg
+        output wire PR_Write_OP,
+        output wire PR_Write_D,
+        output wire PR_Write_A,
+        output wire PR_InvertIn,
+        output wire PR_Reset_XPT
     );
 
     // for debug
-    assign _A = ~notA;
-    assign _F = ~notF;
-    assign _B = ~notB;
-    assign _C = ~notC;
-    assign _D = ~notD;
-    assign _E = ~notE;
-    assign _H = ~notH;
-    assign _L = ~notL;
-    assign _PC = ~notPC;
-    assign _SP = ~notSP;
-    assign _IX = ~notIX;
-    assign _IY = ~notIY;
-    assign _I = ~notI;
-    assign _Dt = ~notDt;
-    assign _Dtex = ~notDtex;
-    assign _R = ~notR;
-    assign _Dtcs = Dtcs;
-    assign _OP = OP;
-    assign _OPold = OPold;
-    assign _XPT = XPT;
-    assign _ITABLE = ITABLE;
-    assign _ALU = ~notALU;
+    assign debugA = ~notA;
+    assign debugF = ~notF;
+    assign debugB = ~notB;
+    assign debugC = ~notC;
+    assign debugD = ~notD;
+    assign debugE = ~notE;
+    assign debugH = ~notH;
+    assign debugL = ~notL;
+    assign debugPC = ~notPC;
+    assign debugSP = ~notSP;
+    assign debugIX = ~notIX;
+    assign debugIY = ~notIY;
+    assign debugI = ~notI;
+    assign debugDt = ~notDt;
+    assign debugDtex = ~notDtex;
+    assign debugR = ~notR;
+    assign debugDtcs = Dtcs;
+    assign debugOP = OP;
+    assign debugOPold = OPold;
+    assign debugXPT = XPT;
+    assign debugITABLE = ITABLE;
+    assign debugALU = ~notALU;
+
+    assign debugIFF1 = ~notIFF1;
+    assign debugIFF2 = IFF2;
+    assign debugIMFa = IMFa;
+    assign debugIMFb = IMFb;
+    assign debugTINT = TINT;
+    assign debugTNMI = TNMI;
+    assign debugTWAIT = TWAIT;
+    assign debugTRESET = TRESET;
+    assign debugXIX = XIX;
+    assign debugXIX4_0 = XIX4_0;
+    assign debugXIX4_1 = XIX4_1;
+    assign debugXIY = XIY;
+    assign debugXIY4_0 = XIY4_0;
+    assign debugXIY4_1 = XIY4_1;
+    assign debugXOTR = XOTR;
+    assign debugXBIT = XBIT;
+    assign debugCM1 = ~notCM1;
+    assign debugCMR = ~notCMR;
+    assign debugCMA = ~notCMA;
+    assign debugCBUSRQ = ~notCBUSRQ;
+    assign debugCRESET = ~notCRESET;
+    assign debugCNMI = ~notCNMI;
+    assign debugCINT0 = ~notCINT0;
+    assign debugCINT0_RST = ~notCINT0_RST;
+    assign debugCINT0_CALL = ~notCINT0_CALL;
+    assign debugCINT1 = ~notCINT1;
+    assign debugCINT2 = ~notCINT2;
 
     wire notClk = Clk ~| Clk;
 
@@ -104,7 +187,7 @@ module NORZ(
 
     wire [7:0] notDin = ~Din; // 8
 
-    ALU alu( // 1832 + 19
+    ALU alu( // 1832 + 24
         .notA(notA),
         .notF(notF),
         .notB(notB),
@@ -132,15 +215,15 @@ module NORZ(
         .PA_Select_E_high(PA_Select_E_high),
         .notPA_Select_H_high(~PA_Select_H_high),
         .PA_Select_L_high(PA_Select_L_high),
-        .notPA_Select_Dt_high(PA_Select_Dt_high),
+        .notPA_Select_Dt_high(~PA_Select_Dt_high),
         .PA_Select_BC_high(PA_Select_BC_high),
         .PA_Select_DE_high(PA_Select_DE_high),
         .PA_Select_HL_high(PA_Select_HL_high),
-        .notPA_Select_PC_high(PA_Select_PC_high),
-        .notPA_Select_SP_high(PA_Select_SP_high),
-        .notPA_Select_IX_high(PA_Select_IX_high),
-        .notPA_Select_IY_high(PA_Select_IY_high),
-        .PA_Select_0x1_high(0), // 未使用
+        .notPA_Select_PC_high(~PA_Select_PC_high),
+        .notPA_Select_SP_high(~PA_Select_SP_high),
+        .notPA_Select_IX_high(~PA_Select_IX_high),
+        .notPA_Select_IY_high(~PA_Select_IY_high),
+        .PA_Select_0x1_high(1'b0), // 未使用
         .notPA_Select_A_low(~PA_Select_A_low),
         .notPA_Select_F_low(~PA_Select_F_low),
         .notPA_Select_B_low(~PA_Select_B_low),
@@ -158,7 +241,7 @@ module NORZ(
         .PA_Select_BC_low(PA_Select_BC_low),
         .PA_Select_DE_low(PA_Select_DE_low),
         .PA_Select_HL_low(PA_Select_HL_low),
-        .notPA_Select_PC_low(1), // 未使用
+        .notPA_Select_PC_low(1'b1), // 未使用
         .notPA_Select_SP_low(~PA_Select_SP_low),
         .notPA_Select_IX_low(~PA_Select_IX_low),
         .notPA_Select_IY_low(~PA_Select_IY_low),
@@ -485,7 +568,6 @@ module NORZ(
         .PF_Select_Z_bit47(PF_Select_Z_bit47),
         .PA_Select_0x2_low(PA_Select_0x2_low),
         .PA_Select_0x4_low(PA_Select_0x4_low),
-        .PA_Select_0x20_low(PA_Select_0x20_low),
         .PA_Select_0x40_low(PA_Select_0x40_low),
         .PA_Select_0x80_low(PA_Select_0x80_low),
         .P2_Set_XIX4_1(P2_Set_XIX4_1),
@@ -631,7 +713,7 @@ module NORZ(
         .PR_Exx(PR_Exx),
         .PR_Write_F(PR_Write_F),
         .P2_Set_XBIT(P2_Set_XBIT),
-        .PR_Ex_DE_HL(PR_Ex_DE_HL),
+        .PR_Ex_DE_HL(PR_EX_DE_HL),
         .P2_Set_IFF1(P2_Set_IFF1), // <
         .P2_Set_IFF2(P2_Set_IFF2), // >
         .P2_Set_IJPccnn_0_0(P2_Set_IJPccnn_0_0),
@@ -665,10 +747,11 @@ module NORZ(
         .P2_Set_IANDn(P2_Set_IANDn),
         .P2_Set_IXORn(P2_Set_IXORn),
         .P2_Set_IORn(P2_Set_IORn),
-        .P2_Set_ICPn(P2_Set_ICPn)
+        .P2_Set_ICPn(P2_Set_ICPn),
+        .debugPa_Ophd(debugPa_Ophd)
     );
 
-    FLIPFLOP ff( // 1708
+    FLIPFLOP ff( // 1707
         .Clk(Clk),
         .notClk(notClk),
         .P2_Set_IFF1(P2_Set_IFF1),
@@ -686,7 +769,6 @@ module NORZ(
         .WAIT(WAIT),
         .P2_Reset_TINT(P2_Reset_TINT),
         .P2_Reset_TNMI(P2_Reset_TNMI),
-        .P2_Reset_TRSET(P2_Reset_TRSET),
         .P2_Set_LHALT(P2_Set_LHALT),
         .P2_Reset_LHALT(P2_Reset_LHALT),
         .P2_Set_CM1(P2_Set_CM1),
@@ -919,7 +1001,7 @@ module NORZ(
         .notITABLE(notITABLE)
     );
 
-    INTERFACE interface( // 952 + 37
+    INTERFACE interface_( // 952 + 37
         .notA(notA),
         .notF(notF),
         .notB(notB),
@@ -1003,7 +1085,7 @@ module NORZ(
         .interfaceIORQ(interfaceIORQ)
     );
 
-    REGISTER reg_( // 3834 + 34
+    REGISTER reg_( // 3831 + 34
         .Clk(Clk),
         .notClk(notClk),
         .notALUResult(notALU),
@@ -1019,7 +1101,6 @@ module NORZ(
         .isResult0(isResult0),
         .DAA_Flag_H(DAA_Flag_H),
         .IFF2(IFF2),
-        .CINT(CINT),
         .is16bitEqual(is16bitEqual),
         .is8bitOverflow(is8bitOverflow),
         .notIs8bitEvenParity(notIs8bitEvenParity),
@@ -1105,7 +1186,7 @@ module NORZ(
         // Dtex
         .PR_Write_Dtex(PR_Write_Dtex),
         // Dtcs
-        .PI_ReadDtcs(PI_ReadDtcs),
+        .PI_ReadDtcs(PI_Read_Dtcs),
         // OP
         .PR_Write_OP(PR_Write_OP),
         // OPold

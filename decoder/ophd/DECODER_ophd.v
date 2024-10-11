@@ -93,7 +93,7 @@ module DECODER_ophd(
         .not_enable_int(_not_enable_int)
     );
 
-    DECODER_ophd_int int(
+    DECODER_ophd_int int_(
         .TINT(TINT),
         .notIFF1(notIFF1),
         .IMFa(IMFa),

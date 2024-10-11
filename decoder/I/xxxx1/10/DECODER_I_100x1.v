@@ -54,7 +54,7 @@ module DECODER_I_100x1(
         .In(ITABLE[4]),
         .notIn(notITABLE[4]),
         .out0(_0),
-        .out1(_1),
+        .out1(_1)
     );
 
     wire _not0 = _0 ~| _0;
@@ -67,7 +67,7 @@ module DECODER_I_100x1(
         .In(ITABLE[2]),
         .notIn(notITABLE[2]),
         .out0(_0_0),
-        .out1(_0_1),
+        .out1(_0_1)
     );
 
     wire _not0_0 = _0_0 ~| _0_0;
@@ -123,7 +123,7 @@ module DECODER_I_100x1(
         .In(XPT[0]),
         .notIn(notXPT[0]),
         .out0(_decodedXPT[2]),
-        .out1(_decodedXPT[3]),
+        .out1(_decodedXPT[3])
     );
 
     DECODER_2bit_decoder t_01dd( // 8
@@ -141,7 +141,7 @@ module DECODER_I_100x1(
         .In(XPT[0]),
         .notIn(notXPT[0]),
         .out0(_decodedXPT[8]),
-        .out1(_decodedXPT[9]),
+        .out1(_decodedXPT[9])
     );
 
     wire _c1;

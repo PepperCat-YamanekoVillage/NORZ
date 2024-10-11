@@ -11,7 +11,7 @@ module ALU_input_mux_BC(
         input wire PA_Select_C_low,
         input wire PA_Select_BC_low,
         output wire [15:0] High,
-        output wire [15:0] Low,
+        output wire [15:0] Low
     );
 
     wire _notPA_Select_B_high_high = PA_Select_BC_high ~| PA_Select_BC_high;

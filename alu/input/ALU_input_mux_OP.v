@@ -10,7 +10,7 @@ module ALU_input_mux_OP(
         input wire PA_Select_OPold_low,
         input wire PA_Select_OP_high,
         output wire [15:0] Low,
-        output wire [7:0] High,
+        output wire [7:0] High
     );
 
     wire _notPA_Select_OP_low_low0 = PA_Select_OP_low ~| PA_Select_IOP_low;

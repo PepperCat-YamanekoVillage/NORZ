@@ -42,7 +42,7 @@ module DECODER_I_00001xx1(
         .In(ITABLE[1]),
         .notIn(notITABLE[1]),
         .out0(_00001x01),
-        .out1(_00001x11),
+        .out1(_00001x11)
     );
 
     wire _not_00001x01 = _00001x01 ~| _00001x01;
@@ -55,7 +55,7 @@ module DECODER_I_00001xx1(
         .In(ITABLE[2]),
         .notIn(notITABLE[2]),
         .out0(_00001001),
-        .out1(_00001101),
+        .out1(_00001101)
     );
 
     wire _PI_SelectAd_OPOPold_00;

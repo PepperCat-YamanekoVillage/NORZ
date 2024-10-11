@@ -38,7 +38,7 @@ module DECODER_I_0000010(
         .In(ITABLE[0]),
         .notIn(notITABLE[0]),
         .out0(_0),
-        .out1(_1),
+        .out1(_1)
     );
 
     //

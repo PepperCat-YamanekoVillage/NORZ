@@ -69,7 +69,7 @@ module DECODER_I_00111(
         .In(XPT[0]),
         .notIn(notXPT[0]),
         .out0(_decodedXPT[2]),
-        .out1(_decodedXPT[3]),
+        .out1(_decodedXPT[3])
     ); 
 
     wire _nott01xx = _t01xx ~| _t01xx;

@@ -79,7 +79,7 @@ module DECODER_op_XIX_11(
         .In(Source[3]),
         .notIn(notSource[3]),
         .out0(_11100xxx),
-        .out1(_11101001),
+        .out1(_11101001)
     );
 
     wire _not11100xxx = _11100xxx ~| _11100xxx;

@@ -175,7 +175,7 @@ module DECODER_I(
         .In(ITABLE[3]),
         .notIn(notITABLE[3]),
         .out0(_xxxx0xxx),
-        .out1(_xxxx1xxx),
+        .out1(_xxxx1xxx)
     );
 
     wire _PI_SelectDt_OP_0;

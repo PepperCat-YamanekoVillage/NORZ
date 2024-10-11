@@ -65,7 +65,7 @@ module DECODER_I_00xx0(
         .In(ITABLE[5]),
         .notIn(notITABLE[5]),
         .out0(_000x0xxx),
-        .out1(_001x0xxx),
+        .out1(_001x0xxx)
     );
 
     wire _PR_Reset_XPT_0;

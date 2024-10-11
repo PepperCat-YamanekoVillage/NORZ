@@ -81,7 +81,7 @@ module DECODER_I_11xx1(
         .In(ITABLE[5]),
         .notIn(notITABLE[5]),
         .out0(_110x1xxx),
-        .out1(_111x1xxx),
+        .out1(_111x1xxx)
     );
 
     wire _PA_Select_IX_high_0;

@@ -21,7 +21,7 @@ module DECODER_I_01100(
         output wire PR_Write_B,
         output wire PR_Write_D,
         output wire PR_Write_H,
-        output wire PR_Write_SP_high,
+        output wire PR_Write_SP_high
     );
 
     // wire [7:0] notITABLE = ~ITABLE;

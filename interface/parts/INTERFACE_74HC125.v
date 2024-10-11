@@ -5,6 +5,6 @@ module INTERFACE_74HC125(
         output wire out
     );
 
-    assign out = (nullify) ? z : in;
+    assign out = (nullify) ? 1'bz : in;
 
 endmodule

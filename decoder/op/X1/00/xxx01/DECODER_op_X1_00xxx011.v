@@ -27,8 +27,8 @@ module DECODER_op_X1_00xxx011(
         output wire PR_Write_SP_low // >
     );
 
-    wire [4:0] notXPT = ~XPT;
-    wire [7:0] notSource = ~Source;
+    // wire [4:0] notXPT = ~XPT;
+    // wire [7:0] notSource = ~Source;
 
     //
     // XPT

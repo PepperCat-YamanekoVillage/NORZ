@@ -57,7 +57,7 @@ module DECODER_I_00010(
         .In(ITABLE[0]),
         .notIn(notITABLE[0]),
         .out0(_B),
-        .out1(_C),
+        .out1(_C)
     );
 
     DECODER_1bit_decoder d_0001001d(
@@ -65,7 +65,7 @@ module DECODER_I_00010(
         .In(ITABLE[0]),
         .notIn(notITABLE[0]),
         .out0(_D),
-        .out1(_E),
+        .out1(_E)
     );
 
     DECODER_1bit_decoder d_0001010d(
@@ -73,7 +73,7 @@ module DECODER_I_00010(
         .In(ITABLE[0]),
         .notIn(notITABLE[0]),
         .out0(_H),
-        .out1(_L),
+        .out1(_L)
     );
 
     assign PR_Write_A = _A;

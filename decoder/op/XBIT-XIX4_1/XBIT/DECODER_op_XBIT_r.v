@@ -84,7 +84,7 @@ module DECODER_op_XBIT_r(
         .out11(_A)
     );
 
-    wire enable_bit = _notdecodedXPT3 ~| _HL;
+    assign enable_bit = _notdecodedXPT3 ~| _HL;
 
     assign PR_Reset_XPT = enable_bit;
     assign P2_Set_CM1 = enable_bit;

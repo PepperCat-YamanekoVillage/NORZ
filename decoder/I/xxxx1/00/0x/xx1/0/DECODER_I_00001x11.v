@@ -26,7 +26,7 @@ module DECODER_I_00001x11(
         .In(ITABLE[2]),
         .notIn(notITABLE[2]),
         .out0(PR_Write_IX_high),
-        .out1(PR_Write_IY_high),
+        .out1(PR_Write_IY_high)
     );
 
     assign PR_Reset_XPT = enable;
