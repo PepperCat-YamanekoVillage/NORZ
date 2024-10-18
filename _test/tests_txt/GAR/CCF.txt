@@ -1,0 +1,7 @@
+00 110 111 // SCF
+
+00 111 111 [FlagC=0,FlagN=0,FlagH=1] // CCF
+
+00 111 111 [FlagC=1,FlagN=0,FlagH=0] // CCF
+
+ff fff fff

@@ -1,0 +1,33 @@
+00 100 001 // LD HL,0x4b
+01 001 011
+00 000 000
+
+00 100 010 // LD (0x4b),HL
+01 001 011
+00 000 000
+
+11 001 011 // BIT 0,(HL)
+01 000 110 [FlagZ=0,FlagN=0,FlagH=1]
+
+11 001 011 // BIT 1,(HL)
+01 001 110 [FlagZ=0,FlagN=0,FlagH=1]
+
+11 001 011 // BIT 2,(HL)
+01 010 110 [FlagZ=1,FlagN=0,FlagH=1]
+
+11 001 011 // BIT 3,(HL)
+01 011 110 [FlagZ=0,FlagN=0,FlagH=1]
+
+11 001 011 // BIT 4,(HL)
+01 100 110 [FlagZ=1,FlagN=0,FlagH=1]
+
+11 001 011 // BIT 5,(HL)
+01 101 110 [FlagZ=1,FlagN=0,FlagH=1]
+
+11 001 011 // BIT 6,(HL)
+01 110 110 [FlagZ=0,FlagN=0,FlagH=1]
+
+11 001 011 // BIT 7,(HL)
+01 111 110 [FlagZ=1,FlagN=0,FlagH=1]
+
+ff fff fff

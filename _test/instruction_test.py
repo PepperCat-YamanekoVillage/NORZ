@@ -3,10 +3,9 @@ import cocotb
 from cocotb.triggers import Timer
 
 # define
-DURATION_TIME = 1000 # ←待機時間
-PROGRAM_PATH = "/Users/Pepper/verilog/norz_verilog/_test/tests_txt/LD8/LDrn.txt"
+DURATION_TIME = 1000
+PROGRAM_PATH = "/Users/Pepper/verilog/norz_verilog/_test/tests_txt/_SAMPLE/divide.txt"
 
-# Init Function
 async def init(_dut, duration_time):
     _dut.interfaceDt_in.value = 0
     _dut.BUSRQ.value = 1
@@ -53,7 +52,6 @@ def printlist(name,list):
     print(name + ":    BIN "+ str(list) + "    DEC:" + str(list.integer))
 
 def printall(_dut):
-    print("")
     print("")
     print("----------------------------------------")
     printlist("intAd  ",_dut.interfaceAd.value)
@@ -119,7 +117,6 @@ def printall(_dut):
     printlist("CINT2   ",_dut.debugCINT2.value)
     print("----------------------------------------")
     print("")
-    print("")
 
 class Memory:
     def __init__(self, path):
@@ -169,11 +166,16 @@ class Memory:
         print("")
 
     def print_virtual_memory(self):
+        print("VMEM")
         for key in self.virtual_memory_dict:
             print("(" + key + ") " + self.virtual_memory_dict[key])
+        print("----------------------------------------")
+        print("")
+        print("")
 
     def write(self,ad:str,dt:str):
-        self.virtual_memory_dict[ad] = str
+        self.virtual_memory_dict[ad] = dt
+        print()
 
     def read(self,ad:str)->str:
         i = 15
@@ -195,6 +197,7 @@ class Memory:
         if(ad in self.virtual_memory_dict):
             return self.virtual_memory_dict[ad]
 
+        print(ad)
         # エラー
         return "eeeeeeee"
 
@@ -309,6 +312,8 @@ class Memory:
             rval = str(_dut.debugCINT1.value)
         if (reg == "CINT2"):
             rval = str(_dut.debugCINT2.value)
+        if (reg == "LHALT"):
+            rval = str(_dut.interfaceHALT.value)
         if (reg == "FlagS"):
             rval = str(_dut.debugF[7].value)
         if (reg == "FlagZ"):
@@ -321,11 +326,13 @@ class Memory:
             rval = str(_dut.debugF[1].value)
         if (reg == "FlagC"):
             rval = str(_dut.debugF[0].value)
+        if (reg[0] == "("):
+            rval = self.virtual_memory_dict[(reg[1:-1])]
 
         if(rval == tval):
-            print("Test( " + reg + "=" + tval + " ) is passed.")
+            print("✅ Test( " + reg + "=" + tval + " ) is passed.")
         else:
-            print("ERROR Test( " + reg + "==" + tval + " ) is not passed. " + reg + " is " + rval + " !")
+            print("🟥 Test( " + reg + "==" + tval + " ) is not passed. " + reg + " is " + rval + " !")
 
 # TestBench
 @cocotb.test()
@@ -337,17 +344,16 @@ async def tb_instruction(dut):
     # Reset
     await reset(_dut,DURATION_TIME)
 
-    #printall(_dut)
-
     memory = Memory(PROGRAM_PATH)
 
     isOphd = 0
+    halt = 0
 
     while(True):
         if(isOphd == 1):
             memory.runtest(_dut)
 
-        if((_dut.interfaceMREQ.value == 0) and (_dut.interfaceRD.value == 0)):
+        if((_dut.interfaceMREQ.value == 0 or _dut.interfaceIORQ.value == 0) and (_dut.interfaceRD.value == 0)):
             dt = memory.read(str(_dut.interfaceAd.value))
             print(dt)
             if (dt == "ffffffff"):
@@ -369,13 +375,18 @@ async def tb_instruction(dut):
                 _dut.interfaceDt_in[i].value = dtbit
                 i-=1
 
-        if((_dut.interfaceMREQ.value == 0) and (_dut.interfaceWR.value == 0)):
+        if((_dut.interfaceMREQ.value == 0 or _dut.interfaceIORQ.value == 0) and (_dut.interfaceWR.value == 0)):
             memory.write(str(_dut.interfaceAd.value),str(_dut.interfaceDt_out.value))
 
         await Timer(DURATION_TIME, units="ns")
         _dut.Clk.value = 0
         await Timer(DURATION_TIME, units="ns")
         isOphd = _dut.debugPa_Ophd.value
+        if(_dut.interfaceHALT.value==0):
+            halt += 1
+            if(halt>21):
+                print("HALT LOOP")
+                break;
         _dut.Clk.value = 1
         await Timer(DURATION_TIME, units="ns")
 

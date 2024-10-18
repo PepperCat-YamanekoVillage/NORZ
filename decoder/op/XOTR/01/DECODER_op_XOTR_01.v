@@ -1,4 +1,4 @@
-// 47(274)
+// 47(276)
 module DECODER_op_XOTR_01(
         input wire enable,
         input wire [4:0] XPT,
@@ -98,7 +98,8 @@ module DECODER_op_XOTR_01(
         output wire PI_SelectDt_Dt,
         output wire PI_SelectAd_HL,
         output wire PA_RRD,
-        output wire PA_RLD
+        output wire PA_RLD,
+        output wire P2_Set_CMR
     );
 
     // wire [4:0] notXPT = ~XPT;
@@ -246,7 +247,8 @@ module DECODER_op_XOTR_01(
         .P2_Set_ILDddlnnl_BC_0(P2_Set_ILDddlnnl_BC_0),
         .P2_Set_ILDddlnnl_DE_0(P2_Set_ILDddlnnl_DE_0),
         .P2_Set_ILDddlnnl_HL_0(P2_Set_ILDddlnnl_HL_0),
-        .P2_Set_ILDddlnnl_SP_0(P2_Set_ILDddlnnl_SP_0)
+        .P2_Set_ILDddlnnl_SP_0(P2_Set_ILDddlnnl_SP_0),
+        .P2_Set_CMR(P2_Set_CMR)
     );
 
     wire _PR_Reset_XPT_10; // <

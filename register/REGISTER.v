@@ -1,4 +1,4 @@
-// 3(3831)
+// 3(3840)
 module REGISTER(
         input wire Clk,
         input wire notClk,
@@ -19,6 +19,7 @@ module REGISTER(
         input wire is8bitOverflow,
         input wire notIs8bitEvenParity,
         input wire is16bitOverflow,
+        input wire notDAACY8,
         input wire PR_InvertIn,
         // AF
         input wire PR_Write_A,
@@ -26,7 +27,7 @@ module REGISTER(
         input wire PF_Write_S,
         input wire notPF_Select_S_bit7,
         input wire notPF_Select_S_bit15,
-        input wire notPF_Select_S_bit23,
+        input wire notPF_Select_S_bit39,
         input wire PF_Write_Z,
         input wire notPF_Select_Z_bit19,
         input wire notPF_Select_Z_bit21,
@@ -191,6 +192,7 @@ module REGISTER(
         .notCY8(notCY8),
         .CY12(CY12),
         .CY16(CY16),
+        .notDAACY8(notDAACY8),
         .notIs8bitEqual(notIs8bitEqual),
         .notIsResultLow0(notIsResultLow0),
         .isResult0(isResult0),
@@ -203,7 +205,7 @@ module REGISTER(
         .PF_Write_S(PF_Write_S),
         .notPF_Select_S_bit7(notPF_Select_S_bit7),
         .notPF_Select_S_bit15(notPF_Select_S_bit15),
-        .notPF_Select_S_bit23(notPF_Select_S_bit23),
+        .notPF_Select_S_bit39(notPF_Select_S_bit39),
         .PF_Write_Z(PF_Write_Z),
         .notPF_Select_Z_bit19(notPF_Select_Z_bit19),
         .notPF_Select_Z_bit21(notPF_Select_Z_bit21),

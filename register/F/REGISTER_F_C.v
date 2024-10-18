@@ -1,4 +1,4 @@
-// 27(42)
+// 28(43)
 module REGISTER_F_C(
         // input wire clk,
         input wire Clk,
@@ -7,7 +7,7 @@ module REGISTER_F_C(
         input wire notALUResult0,
         input wire notCY8,
         input wire CY16,
-        input wire notFlag_S,
+        input wire Flag_S,
         input wire notALULow0,
         input wire notALULow7,
         input wire PF_Write_C,
@@ -53,12 +53,14 @@ module REGISTER_F_C(
     wire _CY8 = notCY8 ~| notCY8;
     wire _notCY16 = CY16 ~| CY16;
 
+    wire notFlag_SC = Flag_S ~| F_C;
+
     // and
 
     wire _new_C = notF_C ~| PF_Write_C;
     wire _new_CY8 = notCY8 ~| _notPF_Select_C_bit23;
     wire _new_notCY8 = _CY8 ~| _notPF_Select_C_bit26;
-    wire _new_Flag_S = notFlag_S ~| _notPF_Select_C_bit29;
+    wire _new_Flag_S = notFlag_SC ~| _notPF_Select_C_bit29;
     wire _new_CY16 = _notCY16 ~| _notPF_Select_C_bit32;
     wire _new_notCY16 = CY16 ~| _notPF_Select_C_bit36;
     wire _new_Low0 = notALULow0 ~| _notPF_Select_C_bit37;

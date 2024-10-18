@@ -1,5 +1,5 @@
 // IN r,(C) / OUT (C),r
-// 16(62)
+// 16(64)
 module DECODER_op_XOTR_01xxx00(
         input wire enable,
         input wire [4:0] XPT,
@@ -173,13 +173,13 @@ module DECODER_op_XOTR_01xxx00(
     wire _not01xx0000_t7 = _01xx0000_t7 ~| _01xx0000_t7;
     wire _not01xx1000_t7 = _01xx1000_t7 ~| _01xx1000_t7;
 
-    DECODER_2bit_decoder d_01dd0000_t7( // 5
+    DECODER_2bit_decoder d_01dd0000_t7( // 7
         .notEnable(_not01xx0000_t7),
         .In(Source[5:4]),
         .notIn(notSource[5:4]),
         .out00(PR_Write_B),
         .out01(PR_Write_D),
-        .out1x(PR_Write_H)
+        .out10(PR_Write_H)
     );
 
     DECODER_2bit_decoder d_01dd1000_t7( // 8

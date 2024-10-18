@@ -36,7 +36,7 @@ module DECODER_I(
         output wire PR_InvertIn,
         output wire P2_Set_CMA,
         output wire P2_Set_IJPnn_1,
-        output wire PA_Select_OP_high,
+        output wire PA_Select_OPxx_low,
         output wire PA_NOP,
         output wire PR_Write_PC_high,
         output wire PR_Write_PC_low,
@@ -66,6 +66,8 @@ module DECODER_I(
         output wire PI_SelectDt_A,
         output wire PI_SelectDt_B,
         output wire PI_SelectDt_D,
+        output wire PI_SelectDt_C,
+        output wire PI_SelectDt_E,
         output wire P2_Set_ILDlnnldd_BC_1,
         output wire P2_Set_ILDlnnldd_DE_1,
         output wire P2_Set_ILDlnnldd_HL_1,
@@ -195,7 +197,7 @@ module DECODER_I(
     wire _PR_Write_A_0;
     wire _PR_InvertIn_0;
     wire _P2_Set_CMA_0;
-    wire _PA_Select_OP_high_0;
+    wire _PA_Select_OPxx_low_0;
     wire _PA_NOP_0;
     wire _PR_Write_PC_high_0;
     wire _PR_Write_PC_low_0;
@@ -267,7 +269,7 @@ module DECODER_I(
         .PR_InvertIn(_PR_InvertIn_0),
         .P2_Set_CMA(_P2_Set_CMA_0),
         .P2_Set_IJPnn_1(P2_Set_IJPnn_1),
-        .PA_Select_OP_high(_PA_Select_OP_high_0),
+        .PA_Select_OPxx_low(_PA_Select_OPxx_low_0),
         .PA_NOP(_PA_NOP_0),
         .PR_Write_PC_high(_PR_Write_PC_high_0),
         .PR_Write_PC_low(_PR_Write_PC_low_0),
@@ -297,6 +299,8 @@ module DECODER_I(
         .PI_SelectDt_A(_PI_SelectDt_A_0),
         .PI_SelectDt_B(PI_SelectDt_B),
         .PI_SelectDt_D(PI_SelectDt_D),
+        .PI_SelectDt_C(PI_SelectDt_C),
+        .PI_SelectDt_E(PI_SelectDt_E),
         .P2_Set_ILDlnnldd_BC_1(P2_Set_ILDlnnldd_BC_1),
         .P2_Set_ILDlnnldd_DE_1(P2_Set_ILDlnnldd_DE_1),
         .P2_Set_ILDlnnldd_HL_1(P2_Set_ILDlnnldd_HL_1),
@@ -348,7 +352,7 @@ module DECODER_I(
     wire _PR_Write_A_1;
     wire _PR_InvertIn_1;
     wire _P2_Set_CMA_1;
-    wire _PA_Select_OP_high_1;
+    wire _PA_Select_OPxx_low_1;
     wire _PA_NOP_1;
     wire _PR_Write_PC_high_1;
     wire _PR_Write_PC_low_1;
@@ -472,7 +476,7 @@ module DECODER_I(
         .P2_Set_IJPccnn_6_1(P2_Set_IJPccnn_6_1),
         .P2_Set_IJPccnn_7_1(P2_Set_IJPccnn_7_1),
         .P2_Set_CMA(_P2_Set_CMA_1),
-        .PA_Select_OP_high(_PA_Select_OP_high_1),
+        .PA_Select_OPxx_low(_PA_Select_OPxx_low_1),
         .P2_Set_ICALLccnn_0_1(P2_Set_ICALLccnn_0_1),
         .P2_Set_ICALLccnn_1_1(P2_Set_ICALLccnn_1_1),
         .P2_Set_ICALLccnn_2_1(P2_Set_ICALLccnn_2_1),
@@ -541,7 +545,7 @@ module DECODER_I(
     assign PR_Write_A = (_PR_Write_A_0 | _PR_Write_A_1); // 2
     assign PR_InvertIn = (_PR_InvertIn_0 | _PR_InvertIn_1); // 2
     assign P2_Set_CMA = (_P2_Set_CMA_0 | _P2_Set_CMA_1); // 2
-    assign PA_Select_OP_high = (_PA_Select_OP_high_0 | _PA_Select_OP_high_1); // 2
+    assign PA_Select_OPxx_low = (_PA_Select_OPxx_low_0 | _PA_Select_OPxx_low_1); // 2
     assign PA_NOP = (_PA_NOP_0 | _PA_NOP_1); // 2
     assign PR_Write_PC_high = (_PR_Write_PC_high_0 | _PR_Write_PC_high_1); // 2
     assign PR_Write_PC_low = (_PR_Write_PC_low_0 | _PR_Write_PC_low_1); // 2

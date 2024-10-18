@@ -20,6 +20,7 @@ module DECODER_op_XOTR_101xx010(
         output wire PA_Select_0x1_low,
         output wire PA_Select_B_high, // <
         output wire PR_Write_B,
+        output wire PR_InvertIn,
         output wire PF_Write_Z,
         output wire PF_Write_N,
         output wire PF_Select_Z_bit24,
@@ -116,6 +117,7 @@ module DECODER_op_XOTR_101xx010(
 
     assign PA_Select_B_high = _decodedXPT[9];
     assign PR_Write_B = _decodedXPT[9];
+    assign PR_InvertIn = _decodedXPT[9];
     assign PF_Write_Z = _decodedXPT[9];
     assign PF_Write_N = _decodedXPT[9];
     assign PF_Select_Z_bit24 = _decodedXPT[9];

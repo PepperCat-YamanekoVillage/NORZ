@@ -105,7 +105,7 @@ module DECODER_I_00011xx1(
         .Pa_Ophd(_Pa_Ophd_1) // >
     );
 
-    assign PR_Reset_XPT = (_PR_Reset_XPT_0 | _PR_Reset_XPT_0); // 2
+    assign PR_Reset_XPT = (_PR_Reset_XPT_0 | _PR_Reset_XPT_1); // 2
     assign P2_Set_CM1 = PR_Reset_XPT;
     assign P2_Reset_ITABLE = PR_Reset_XPT;
     assign Pa_Ophd = PR_Reset_XPT;

@@ -8,9 +8,9 @@ module DECODER_op_X1_00100111(
         input wire Flag_C,
         input wire Flag_S,
         input wire Flag_N,
-        output wire PA_Select_A_high, // <
-        output wire PA_Select_0x99_low,
-        output wire PF_Select_S_bit23,
+        output wire PA_Select_A_high,
+        output wire PA_Select_0xaa_low, // <
+        output wire PF_Select_S_bit39,
         output wire PF_Select_Z_bit21, // >
         output wire PF_Write_S,
         output wire PF_Write_Z,
@@ -32,16 +32,16 @@ module DECODER_op_X1_00100111(
     );
 
     // 2
-
-    assign PA_Select_A_high = t2;
-    assign PA_Select_0x99_low = t2;
-    assign PF_Select_S_bit23 = t2;
+    
+    assign PA_Select_0xaa_low = t2;
+    assign PF_Select_S_bit39 = t2;
     assign PF_Select_Z_bit21 = t2;
 
     // 2or3
 
-    assign PF_Write_S = (t2 | t3); // 2
-    assign PF_Write_Z = PF_Write_S;
+    assign PA_Select_A_high = (t2 | t3); // 2
+    assign PF_Write_S = PA_Select_A_high;
+    assign PF_Write_Z = PA_Select_A_high;
 
     // 3
 

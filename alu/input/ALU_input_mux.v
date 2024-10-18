@@ -1,4 +1,4 @@
-// 18(1175)
+// (1157)
 module ALU_input_mux(
         input wire [7:0] notA,
         input wire [7:0] notF,
@@ -60,7 +60,7 @@ module ALU_input_mux(
         input wire notPA_Select_OPOPold_low,
         input wire PA_Select_0xffOP_low,
         input wire PA_Select_OPold_low,
-        input wire PA_Select_OP_high,
+        input wire PA_Select_OPxx_low,
         input wire PA_Select_0x1_low,
         input wire PA_Select_0x8_low,
         input wire PA_Select_0x10_low,
@@ -70,7 +70,7 @@ module ALU_input_mux(
         input wire PA_Select_0x30_low,
         input wire PA_Select_0x38_low,
         input wire PA_Select_0x66_low,
-        input wire PA_Select_0x99_low,
+        input wire PA_Select_0xaa_low,
         input wire PA_Select_0x06_low,
         input wire PA_Select_0x60_low,
         input wire PA_Select_0x2_low,
@@ -189,7 +189,6 @@ module ALU_input_mux(
     );
 
     wire [15:0] _OPLow;
-    wire [7:0] _OPHigh;
     
     ALU_input_mux_OP op(
         .notOP(notOP),
@@ -199,9 +198,8 @@ module ALU_input_mux(
         .notPA_Select_OPOPold_low(notPA_Select_OPOPold_low),
         .PA_Select_0xffOP_low(PA_Select_0xffOP_low),
         .PA_Select_OPold_low(PA_Select_OPold_low),
-        .PA_Select_OP_high(PA_Select_OP_high),
-        .Low(_OPLow),
-        .High(_OPHigh)
+        .PA_Select_OPxx_low(PA_Select_OPxx_low),
+        .Low(_OPLow)
     );
 
     wire [15:0] _IRLow;
@@ -257,7 +255,7 @@ module ALU_input_mux(
         .PA_Select_0x30_low(PA_Select_0x30_low),
         .PA_Select_0x38_low(PA_Select_0x38_low),
         .PA_Select_0x66_low(PA_Select_0x66_low),
-        .PA_Select_0x99_low(PA_Select_0x99_low),
+        .PA_Select_0xaa_low(PA_Select_0xaa_low),
         .PA_Select_0x06_low(PA_Select_0x06_low),
         .PA_Select_0x60_low(PA_Select_0x60_low),
         .PA_Select_0x2_low(PA_Select_0x2_low),
@@ -515,15 +513,8 @@ module ALU_input_mux(
 
     // OP
 
-    assign High[15:8] = _AFBCDEHLPCSPIXIYIRDtHigh[15:8];
-    assign notHigh[15:8] = _notAFBCDEHLPCSPIXIYIRDtHigh[15:8];
-    wire [7:0] _notHigh = _AFBCDEHLPCSPIXIYIRDtHigh[7:0] ~| _OPHigh; // 8
-    assign High[7:1] = ~_notHigh[7:1]; // 7
-    assign notHigh[7:1] = _notHigh[7:1];
-
-    wire _notHigh0 = ~(_notHigh[0]) ~| _directHigh;
-    assign High[0] = _notHigh0 ~| _notHigh0;
-    assign notHigh[0] = _notHigh0;
+    assign High[15:0] = _AFBCDEHLPCSPIXIYIRDtHigh[15:0];
+    assign notHigh[15:0] = _notAFBCDEHLPCSPIXIYIRDtHigh[15:0];
 
     ALU_input_8bit_or afbcdehlpcspixiyirdtdtcsdindirectopLowLow(
         .A(_AFBCDEHLPCSPIXIYIRDtDtcsDindirectLow[7:0]),

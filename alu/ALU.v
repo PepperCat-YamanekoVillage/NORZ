@@ -1,4 +1,4 @@
-// 9(1832)
+// 10(1819)
 module ALU(
         input wire [7:0] notA,
         input wire [7:0] notF,
@@ -61,7 +61,7 @@ module ALU(
         input wire notPA_Select_OPOPold_low,
         input wire PA_Select_0xffOP_low,
         input wire PA_Select_OPold_low,
-        input wire PA_Select_OP_high,
+        input wire PA_Select_OPxx_low,
         input wire PA_Select_0x1_low,
         input wire PA_Select_0x8_low,
         input wire PA_Select_0x10_low,
@@ -71,7 +71,7 @@ module ALU(
         input wire PA_Select_0x30_low,
         input wire PA_Select_0x38_low,
         input wire PA_Select_0x66_low,
-        input wire PA_Select_0x99_low,
+        input wire PA_Select_0xaa_low,
         input wire PA_Select_0x06_low,
         input wire PA_Select_0x60_low,
         input wire PA_Select_0x2_low,
@@ -111,8 +111,14 @@ module ALU(
         output wire is8bitOverflow,
         output wire is16bitOverflow,
         output wire notIs8bitEvenParity,
-        output wire DAA_Flag_H
+        output wire DAA_Flag_H,
+        output wire notDAACY8,
+        output wire [15:0] debugHigh,
+        output wire [15:0] debugLow
     );
+
+    assign debugHigh = _High;
+    assign debugLow = _Low;
 
     wire [15:0] _High;
     wire [15:0] _notHigh;
@@ -194,7 +200,7 @@ module ALU(
         .notPA_Select_OPOPold_low(notPA_Select_OPOPold_low),
         .PA_Select_0xffOP_low(PA_Select_0xffOP_low),
         .PA_Select_OPold_low(PA_Select_OPold_low),
-        .PA_Select_OP_high(PA_Select_OP_high),
+        .PA_Select_OPxx_low(PA_Select_OPxx_low),
         .PA_Select_0x1_low(PA_Select_0x1_low),
         .PA_Select_0x8_low(PA_Select_0x8_low),
         .PA_Select_0x10_low(PA_Select_0x10_low),
@@ -204,7 +210,7 @@ module ALU(
         .PA_Select_0x30_low(PA_Select_0x30_low),
         .PA_Select_0x38_low(PA_Select_0x38_low),
         .PA_Select_0x66_low(PA_Select_0x66_low),
-        .PA_Select_0x99_low(PA_Select_0x99_low),
+        .PA_Select_0xaa_low(PA_Select_0xaa_low),
         .PA_Select_0x06_low(PA_Select_0x06_low),
         .PA_Select_0x60_low(PA_Select_0x60_low),
         .PA_Select_0x2_low(PA_Select_0x2_low),
@@ -311,11 +317,15 @@ module ALU(
         .notResult(notResult)
     );
 
+    wire _notCY8 = notCY8 ~| notCY8;
+
     ALU_flag flag(
         .High(_High),
         .notHigh(_notHigh),
         .Low(_Low),
         .notLow(_notLow),
+        .notCY4(notCY4),
+        .CY8(_notCY8),
         .ProcessedLow7(_ProcessedLow[7]),
         .notProcessedLow7(_notProcessedLowLow[7]),
         .ProcessedLow15(_ProcessedLow[15]),
@@ -330,7 +340,8 @@ module ALU(
         .is8bitOverflow(is8bitOverflow),
         .is16bitOverflow(is16bitOverflow),
         .notIs8bitEvenParity(notIs8bitEvenParity),
-        .DAA_Flag_H(DAA_Flag_H)
+        .DAA_Flag_H(DAA_Flag_H),
+        .notDAACY8(notDAACY8)
     );
 
 endmodule

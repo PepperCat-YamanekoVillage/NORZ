@@ -1,0 +1,1 @@
+rm -f sim_build;source .venv/bin/activate;make>log.txt;gtkwave sim_build/NORZ.fst

@@ -97,8 +97,8 @@ module DECODER_op_X1(
         output wire P2_Set_ILDrn_L,
         output wire P2_Set_ILDrn_A,
         output wire P2_Set_ILDlHLln,
-        output wire PA_Select_0x99_low,
-        output wire PF_Select_S_bit23,
+        output wire PA_Select_0xaa_low,
+        output wire PF_Select_S_bit39,
         output wire PF_Select_Z_bit21,
         output wire PF_Select_C_bit29,
         output wire PF_Select_PV_bit27,
@@ -395,8 +395,8 @@ module DECODER_op_X1(
         .P2_Set_ILDrn_L(P2_Set_ILDrn_L),
         .P2_Set_ILDrn_A(P2_Set_ILDrn_A),
         .P2_Set_ILDlHLln(P2_Set_ILDlHLln),
-        .PA_Select_0x99_low(PA_Select_0x99_low),
-        .PF_Select_S_bit23(PF_Select_S_bit23),
+        .PA_Select_0xaa_low(PA_Select_0xaa_low),
+        .PF_Select_S_bit39(PF_Select_S_bit39),
         .PF_Select_Z_bit21(PF_Select_Z_bit21),
         .PF_Select_C_bit29(PF_Select_C_bit29),
         .PF_Select_PV_bit27(_PF_Select_PV_bit27_00),
@@ -754,7 +754,7 @@ module DECODER_op_X1(
     assign PF_Select_H_bit21 = (_PF_Select_H_bit21_00 | _PF_Select_H_bit21_10); // 2
     assign PF_Select_H_bit22 = (_PF_Select_H_bit22_00 | _PF_Select_H_bit22_10); // 2
     assign PF_Select_N_bit17 = (_PF_Select_N_bit17_00 | _PF_Select_N_bit17_10); // 2
-    assign PF_Select_PV_bit27 = (_PF_Select_PV_bit27_00 | _PF_Select_PV_bit27_00); // 2
+    assign PF_Select_PV_bit27 = (_PF_Select_PV_bit27_00 | _PF_Select_PV_bit27_10); // 2
     assign PF_Select_H_bit16 = (_PF_Select_H_bit16_00 | _PF_Select_H_bit16_10); // 2
     assign PF_Select_H_bit17 = (_PF_Select_H_bit17_00 | _PF_Select_H_bit17_10); // 2
     assign PI_SelectAd_HL = (_PI_SelectAd_HL_00 | _PI_SelectAd_HL_01 | _PI_SelectAd_HL_10); // 4

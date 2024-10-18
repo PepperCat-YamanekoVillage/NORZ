@@ -43,15 +43,15 @@ module DECODER_I_011x0(
 
     wire _not_enable = enable ~| enable;
 
-    wire _010x0xxx;
-    wire _011x0xxx;
+    wire _01100xxx;
+    wire _01110xxx;
 
-    DECODER_1bit_decoder d_01dx0xxx(
+    DECODER_1bit_decoder d_011d0xxx(
         .notEnable(_not_enable),
-        .In(ITABLE[5]),
-        .notIn(notITABLE[5]),
-        .out0(_010x0xxx),
-        .out1(_011x0xxx)
+        .In(ITABLE[4]),
+        .notIn(notITABLE[4]),
+        .out0(_01100xxx),
+        .out1(_01110xxx)
     );
 
     wire _P2_Set_CMR_0;
@@ -70,7 +70,7 @@ module DECODER_I_011x0(
     wire _PR_Write_SP_high_0;
 
     DECODER_I_01100 d_01100xxx(
-        .enable(_010x0xxx),
+        .enable(_01100xxx),
         .ITABLE(ITABLE),
         .notITABLE(notITABLE),
         .P2_Set_CMR(_P2_Set_CMR_0),
@@ -109,7 +109,7 @@ module DECODER_I_011x0(
     wire _PR_Write_SP_high_1;
 
     DECODER_I_01110 d_01110xxx(
-        .enable(_011x0xxx),
+        .enable(_01110xxx),
         .XPT(XPT),
         .notXPT(notXPT),
         .ITABLE(ITABLE),

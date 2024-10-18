@@ -1,0 +1,43 @@
+00 000 110 // LD B,0x0
+00 000 000
+
+00 001 110 // LD C,0x1
+00 000 001
+
+00 010 110 // LD D,0x6
+00 000 110
+
+00 011 110 // LD E,0x8
+00 001 000
+
+00 100 110 // LD H,0x11
+00 010 001
+
+00 101 110 // LD L,0x66
+01 100 110
+
+00 111 110 // LD A,0xff
+11 111 111
+
+11 001 011 // RLC B
+00 000 000 [B=00 000 000,FlagC=0,FlagZ=1,FlagPV=1,FlagS=0,FlagN=0,FlagH=0]
+
+11 001 011 // RLC C
+00 000 001 [C=00 000 010,FlagC=0,FlagZ=0,FlagPV=0,FlagS=0,FlagN=0,FlagH=0]
+
+11 001 011 // RLC D
+00 000 010 [D=00 001 100,FlagC=0,FlagZ=0,FlagPV=1,FlagS=0,FlagN=0,FlagH=0]
+
+11 001 011 // RLC E
+00 000 011 [E=00 010 000,FlagC=0,FlagZ=0,FlagPV=0,FlagS=0,FlagN=0,FlagH=0]
+
+11 001 011 // RLC H
+00 000 100 [H=00 100 010,FlagC=0,FlagZ=0,FlagPV=1,FlagS=0,FlagN=0,FlagH=0]
+
+11 001 011 // RLC L
+00 000 101 [L=11 001 100,FlagC=0,FlagZ=0,FlagPV=1,FlagS=1,FlagN=0,FlagH=0]
+
+11 001 011 // RLC A
+00 000 111 [A=11 111 111,FlagC=1,FlagZ=0,FlagPV=1,FlagS=1,FlagN=0,FlagH=0]
+
+ff fff fff

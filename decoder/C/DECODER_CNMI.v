@@ -44,6 +44,7 @@ module DECODER_CNMI(
     DECODER_2bit_decoder d_ddxx( // 5
         .notEnable(_notEnable),
         .In(XPT[3:2]),
+        .notIn(notXPT[3:2]),
         .out00(_00xx),
         .out01(_01xx),
         .out1x(_10xx)
@@ -55,6 +56,7 @@ module DECODER_CNMI(
     DECODER_2bit_decoder d_01dd( // 8
         .notEnable(_not_01xx),
         .In(XPT[1:0]),
+        .notIn(notXPT[1:0]),
         .out00(_decodedXPT[4]),
         .out01(_decodedXPT[5]),
         .out10(_decodedXPT[6]),
@@ -64,6 +66,7 @@ module DECODER_CNMI(
     DECODER_2bit_decoder d_10dd( // 5
         .notEnable(_not_10xx),
         .In(XPT[1:0]),
+        .notIn(notXPT[1:0]),
         .out00(_decodedXPT[8]),
         .out01(_decodedXPT[9]),
         .out1x(_decodedXPT[10])

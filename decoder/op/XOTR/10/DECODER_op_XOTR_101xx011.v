@@ -29,7 +29,8 @@ module DECODER_op_XOTR_101xx011(
         output wire PA_Select_HL_high, // <
         output wire PR_Write_H,
         output wire PR_Write_L, // >
-        output wire PR_Write_B
+        output wire PR_Write_B, // <
+        output wire PR_InvertIn // >
     );
 
     // wire [4:0] notXPT = ~XPT;
@@ -151,5 +152,6 @@ module DECODER_op_XOTR_101xx011(
     assign PC_O3 = _decodedXPT[11];
 
     assign PR_Write_B = _decodedXPT[11];
+    assign PR_InvertIn = _decodedXPT[11];
 
 endmodule

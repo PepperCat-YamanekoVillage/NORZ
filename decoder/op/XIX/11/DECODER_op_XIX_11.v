@@ -1,4 +1,4 @@
-// 64(247)
+// 60(243)
 module DECODER_op_XIX_11(
         input wire enable,
         input wire is_Y,
@@ -22,8 +22,6 @@ module DECODER_op_XIX_11(
         output wire PR_InvertIn,
         output wire PR_Write_IX_low,
         output wire PR_Write_IY_low,
-        output wire PA_Select_IX_high,
-        output wire PA_Select_IY_high,
         output wire PA_NOP,
         output wire PR_Write_Dt,
         output wire PR_Write_Dtex,
@@ -126,6 +124,8 @@ module DECODER_op_XIX_11(
     wire _PR_Write_IY_low_POP;
     wire _P2_Reset_XIX_POP;
     wire _P2_Reset_XIY_POP;
+    wire _PR_Write_IX_high_POP;
+    wire _PR_Write_IY_high_POP;
 
     DECODER_op_XIX_11100001 d11100001(
         .enable(_11100001),
@@ -144,9 +144,9 @@ module DECODER_op_XIX_11(
         .PR_Write_IX_low(_PR_Write_IX_low_POP),
         .PR_Write_IY_low(_PR_Write_IY_low_POP),
         .P2_Reset_XIX(_P2_Reset_XIX_POP), // <
-        .PA_Select_IX_high(PA_Select_IX_high), // >
+        .PR_Write_IX_high(_PR_Write_IX_high_POP), // >
         .P2_Reset_XIY(_P2_Reset_XIY_POP), // <
-        .PA_Select_IY_high(PA_Select_IY_high) // >
+        .PR_Write_IY_high(_PR_Write_IY_high_POP) // >
     );
 
     wire _PA_NOP_EX;
@@ -165,6 +165,8 @@ module DECODER_op_XIX_11(
     wire _PA_Select_IY_low_EX;
     wire _PR_Write_IX_low_EX;
     wire _PR_Write_IY_low_EX;
+    wire _PR_Write_IX_high_EX;
+    wire _PR_Write_IY_high_EX;
     wire _P2_Reset_XIX_EX;
     wire _P2_Reset_XIY_EX;
 
@@ -194,8 +196,8 @@ module DECODER_op_XIX_11(
         .PA_Select_IY_low(_PA_Select_IY_low_EX),
         .PR_Write_IX_low(_PR_Write_IX_low_EX),
         .PR_Write_IY_low(_PR_Write_IY_low_EX),
-        .PR_Write_IX_high(PR_Write_IX_high),
-        .PR_Write_IY_high(PR_Write_IY_high),
+        .PR_Write_IX_high(_PR_Write_IX_high_EX),
+        .PR_Write_IY_high(_PR_Write_IY_high_EX),
         .P2_Reset_XIX(_P2_Reset_XIX_EX),
         .P2_Reset_XIY(_P2_Reset_XIY_EX)
     );
@@ -288,6 +290,8 @@ module DECODER_op_XIX_11(
     assign P2_Reset_XIY = (_P2_Reset_XIY_XIX4 | _P2_Reset_XIY_POP | _P2_Reset_XIY_EX | _P2_Reset_XIY_PUSH | _P2_Reset_XIY_JP | _P2_Reset_XIY_LD); // 10
     assign PR_Write_IX_low = (_PR_Write_IX_low_POP | _PR_Write_IX_low_EX); // 2
     assign PR_Write_IY_low = (_PR_Write_IY_low_POP | _PR_Write_IY_low_EX); // 2
+    assign PR_Write_IX_high = (_PR_Write_IX_high_POP | _PR_Write_IX_high_EX); // 2
+    assign PR_Write_IY_high = (_PR_Write_IY_high_POP | _PR_Write_IY_high_EX); // 2
     assign PC_R0 = (_PC_R0_POP | _PC_R0_EX); // 2
     assign PC_R1 = (_PC_R1_POP | _PC_R1_EX); // 2
     assign PC_R2 = (_PC_R2_POP | _PC_R2_EX); // 2

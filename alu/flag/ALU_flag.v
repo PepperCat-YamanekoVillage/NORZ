@@ -1,9 +1,11 @@
-// 9(154)
+// 9(158)
 module ALU_flag(
         input wire [15:0] High,
         input wire [15:0] notHigh,
         input wire [15:0] Low,
         input wire [15:0] notLow,
+        input wire notCY4,
+        input wire CY8,
         input wire ProcessedLow7,
         input wire notProcessedLow7,
         input wire ProcessedLow15,
@@ -18,7 +20,8 @@ module ALU_flag(
         output wire is8bitOverflow,
         output wire is16bitOverflow,
         output wire notIs8bitEvenParity,
-        output wire DAA_Flag_H
+        output wire DAA_Flag_H,
+        output wire notDAACY8
     );
 
     //
@@ -118,5 +121,16 @@ module ALU_flag(
     wire _xor_n = notHigh[4] ~| notResult[4];
     wire _xor_p = High[4] ~| Result[4];
     assign DAA_Flag_H = _xor_n ~| _xor_p;
+
+    //
+    // DAACY8
+    //
+
+    ALU_flag_DAACY daacy(
+        .notHigh(notHigh[7:0]),
+        .notCY4(notCY4),
+        .CY8(CY8),
+        .notDAACY8(notDAACY8)
+    );
 
 endmodule

@@ -1,0 +1,128 @@
+rm -f results.xml
+"/Applications/Xcode.app/Contents/Developer/usr/bin/make" -f Makefile results.xml
+rm -f results.xml
+MODULE=instruction_test TESTCASE= TOPLEVEL=NORZ TOPLEVEL_LANG=verilog \
+         /opt/homebrew/bin/vvp -M /Users/Pepper/verilog/norz_verilog/_test/.venv/lib/python3.12/site-packages/cocotb/libs -m libcocotbvpi_icarus   sim_build/sim.vvp  
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:109  in set_program_name_in_venv        Using Python virtual environment interpreter at /Users/Pepper/verilog/norz_verilog/_test/.venv/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:101  in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Running tests with cocotb v1.9.1 from /Users/Pepper/verilog/norz_verilog/_test/.venv/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb                             Seeding Python random module with 1728630692
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+     0.00ns INFO     cocotb.regression                  Found test instruction_test.tb_instruction
+     0.00ns INFO     cocotb.regression                  running tb_instruction (1/1)
+
+
+----------------------------------------
+BINARY CODES
+
+('11111101', 0, '// LD IY,0xff00')
+('00100001', 0, 0)
+('00000000', 0, 0)
+('11111111', 0, 0)
+('11111101', 0, '// LD (IY+0x1),0xff')
+('00110110', 0, 0)
+('00000001', 0, 0)
+('11111111', '(1111111100000001)=11111111', 0)
+('ffffffff', 0, 0)
+----------------------------------------
+
+// LD IY,0xff00
+11111101
+00100001
+00000000
+00000000
+11111111
+11111111
+// LD (IY+0x1),0xff
+11111101
+00110110
+00000001
+00000001
+11111111
+11111111
+
+✅ Test( (1111111100000001)=11111111 ) is passed.
+ffffffff
+
+END
+
+
+----------------------------------------
+intAd  :    BIN 0000000000001000    DEC:8
+intDt  :    BIN zzzzzzzz
+intBSK :    BIN 1    DEC:1
+intMRQ :    BIN 0    DEC:0
+intRD  :    BIN 0    DEC:0
+intWR  :    BIN 1    DEC:1
+intRFH :    BIN 1    DEC:1
+intIOQ :    BIN 1    DEC:1
+intM1  :    BIN 0    DEC:0
+intHLT :    BIN 1    DEC:1
+
+regA    :    BIN xxxxxxxx
+regF    :    BIN xxxxxxxx
+regB    :    BIN xxxxxxxx
+regC    :    BIN xxxxxxxx
+regD    :    BIN xxxxxxxx
+regE    :    BIN xxxxxxxx
+regH    :    BIN xxxxxxxx
+regL    :    BIN xxxxxxxx
+regPC   :    BIN 0000000000001000    DEC:8
+regSP   :    BIN xxxxxxxxxxxxxxxx
+regIX   :    BIN xxxxxxxxxxxxxxxx
+regIY   :    BIN 1111111100000000    DEC:65280
+regI    :    BIN 00000000    DEC:0
+regR    :    BIN 00000100    DEC:4
+regDt   :    BIN 00000001    DEC:1
+regDex  :    BIN 11111111    DEC:255
+regDcs  :    BIN 11111111    DEC:255
+regOP   :    BIN 11111111    DEC:255
+regOPo  :    BIN 00000001    DEC:1
+regXPT  :    BIN 00001    DEC:1
+regITB  :    BIN 00000000    DEC:0
+ALU     :    BIN 0000000011111111    DEC:255
+
+IFF1    :    BIN 0    DEC:0
+IFF2    :    BIN 0    DEC:0
+IMFa    :    BIN 0    DEC:0
+IMFb    :    BIN 0    DEC:0
+TINT    :    BIN 1    DEC:1
+TNMI    :    BIN 1    DEC:1
+TWAIT   :    BIN 1    DEC:1
+TRESET  :    BIN 1    DEC:1
+XIX     :    BIN 0    DEC:0
+XIX40   :    BIN 0    DEC:0
+XIX41   :    BIN 0    DEC:0
+XIY     :    BIN 0    DEC:0
+XIY40   :    BIN 0    DEC:0
+XIY41   :    BIN 0    DEC:0
+XOTR    :    BIN 0    DEC:0
+XBIT    :    BIN 0    DEC:0
+CM1     :    BIN 1    DEC:1
+CMR     :    BIN 0    DEC:0
+CMA     :    BIN 0    DEC:0
+CBSRQ   :    BIN 0    DEC:0
+CRST    :    BIN 0    DEC:0
+CNMI    :    BIN 0    DEC:0
+CINT0   :    BIN 0    DEC:0
+CINT0R  :    BIN 0    DEC:0
+CINT0C  :    BIN 0    DEC:0
+CINT1   :    BIN 0    DEC:0
+CINT2   :    BIN 0    DEC:0
+----------------------------------------
+
+VMEM
+(1111111100000001) 11111111
+----------------------------------------
+
+
+113000.00ns INFO     cocotb.regression                  tb_instruction passed
+113000.00ns INFO     cocotb.regression                  *****************************************************************************************
+                                                        ** TEST                             STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        *****************************************************************************************
+                                                        ** instruction_test.tb_instruction   PASS      113000.00           0.02    4670763.22  **
+                                                        *****************************************************************************************
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                113000.00           0.03    4130266.63  **
+                                                        *****************************************************************************************
+                                                        

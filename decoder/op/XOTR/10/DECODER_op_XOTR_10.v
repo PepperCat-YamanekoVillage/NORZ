@@ -60,7 +60,8 @@ module DECODER_op_XOTR_10(
         output wire PC_O0,
         output wire PC_O1,
         output wire PC_O2,
-        output wire PC_O3
+        output wire PC_O3,
+        output wire PR_InvertIn
     );
 
     // wire [4:0] notXPT = ~XPT;
@@ -232,6 +233,7 @@ module DECODER_op_XOTR_10(
     wire _PA_Select_0x1_low_10;
     wire _PA_Select_B_high_10; // <
     wire _PR_Write_B_10;
+    wire _PR_InvertIn_10;
     wire _PF_Write_Z_10;
     wire _PF_Write_N_10;
     wire _PF_Select_Z_bit24_10;
@@ -262,6 +264,7 @@ module DECODER_op_XOTR_10(
         .PA_Select_0x1_low(_PA_Select_0x1_low_10),
         .PA_Select_B_high(_PA_Select_B_high_10), // <
         .PR_Write_B(_PR_Write_B_10),
+        .PR_InvertIn(_PR_InvertIn_10),
         .PF_Write_Z(_PF_Write_Z_10),
         .PF_Write_N(_PF_Write_N_10),
         .PF_Select_Z_bit24(_PF_Select_Z_bit24_10),
@@ -292,7 +295,8 @@ module DECODER_op_XOTR_10(
     wire _PA_Select_HL_high_11; // <
     wire _PR_Write_H_11;
     wire _PR_Write_L_11; // >
-    wire _PR_Write_B_11;
+    wire _PR_Write_B_11; // <
+    wire _PR_InvertIn_11; // >
 
     DECODER_op_XOTR_101xx011 d101xx011(
         .enable(_101xx011),
@@ -322,7 +326,8 @@ module DECODER_op_XOTR_10(
         .PA_Select_HL_high(_PA_Select_HL_high_11), // <
         .PR_Write_H(_PR_Write_H_11),
         .PR_Write_L(_PR_Write_L_11), // >
-        .PR_Write_B(_PR_Write_B_11)
+        .PR_Write_B(_PR_Write_B_11), // <
+        .PR_InvertIn(_PR_InvertIn_11) // >
     );
 
     assign PA_ADD = (_PA_ADD_00 | _PA_ADD_01 | _PA_ADD_10 | _PA_ADD_11); // 6
@@ -350,7 +355,8 @@ module DECODER_op_XOTR_10(
     assign PF_Write_PV = PA_Select_BC_high;
     assign PF_Select_PV_bit20 = PA_Select_BC_high;
 
-    assign PR_Write_B = (PA_Select_BC_high | _PR_Write_B_10 | _PR_Write_B_11); // 4
+    assign PR_InvertIn = (_PR_Write_B_10 | _PR_Write_B_11); // 2
+    assign PR_Write_B = (PA_Select_BC_high | PR_InvertIn); // 2
 
     assign PF_Select_Z_bit24 = (_PF_Select_Z_bit24_10 | _PF_Select_Z_bit24_11); // 2
     assign PF_Write_Z = (PF_Select_Z_bit24 | _PF_Write_Z_01); // 2

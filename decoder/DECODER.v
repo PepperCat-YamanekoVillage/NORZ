@@ -1,5 +1,5 @@
 // Pa/PhI/PC系の都合上うまいことデバッグができなかったが、実際はinitial RESETでうまくいくはず
-// 314(5307)
+// 322(5321)
 module DECODER(
         input wire Clk,
         input wire notClk,
@@ -127,7 +127,7 @@ module DECODER(
         output wire PR_InvertIn,
         output wire P2_Set_CMA,
         output wire P2_Set_IJPnn_1,
-        output wire PA_Select_OP_high,
+        output wire PA_Select_OPxx_low,
         output wire PR_Write_B,
         output wire PR_Write_C,
         output wire PR_Write_D,
@@ -396,8 +396,8 @@ module DECODER(
         output wire P2_Set_ILDrn_L,
         output wire P2_Set_ILDrn_A,
         output wire P2_Set_ILDlHLln,
-        output wire PA_Select_0x99_low,
-        output wire PF_Select_S_bit23,
+        output wire PA_Select_0xaa_low,
+        output wire PF_Select_S_bit39,
         output wire PF_Select_Z_bit21,
         output wire PF_Select_C_bit29,
         output wire PF_Select_H_bit28,
@@ -806,6 +806,8 @@ module DECODER(
     wire _PI_SelectDt_A_di;
     wire _PI_SelectDt_B_di;
     wire _PI_SelectDt_D_di;
+    wire _PI_SelectDt_C_di;
+    wire _PI_SelectDt_E_di;
     wire _PA_Select_A_high_di;
     wire _PF_Write_S_di;
     wire _PF_Select_S_bit7_di;
@@ -861,6 +863,8 @@ module DECODER(
     wire _PI_SelectAd_ALU_di;
     wire _PI_SelectDt_Dt_di;
     wire _PA_Select_OPold_low_di;
+    wire _PR_Write_IX_high_di;
+    wire _PR_Write_IY_high_di;
 
     wire _not_decodingOut_di;
 
@@ -901,7 +905,7 @@ module DECODER(
         .PR_InvertIn(_PR_InvertIn_di),
         .P2_Set_CMA(_P2_Set_CMA_di),
         .P2_Set_IJPnn_1(P2_Set_IJPnn_1),
-        .PA_Select_OP_high(PA_Select_OP_high),
+        .PA_Select_OPxx_low(PA_Select_OPxx_low),
         .PA_NOP(_PA_NOP_di),
         .PR_Write_PC_high(_PR_Write_PC_high_di),
         .PR_Write_PC_low(_PR_Write_PC_low_di),
@@ -931,6 +935,8 @@ module DECODER(
         .PI_SelectDt_A(_PI_SelectDt_A_di),
         .PI_SelectDt_B(_PI_SelectDt_B_di),
         .PI_SelectDt_D(_PI_SelectDt_D_di),
+        .PI_SelectDt_C(_PI_SelectDt_C_di),
+        .PI_SelectDt_E(_PI_SelectDt_E_di),
         .P2_Set_ILDlnnldd_BC_1(P2_Set_ILDlnnldd_BC_1),
         .P2_Set_ILDlnnldd_DE_1(P2_Set_ILDlnnldd_DE_1),
         .P2_Set_ILDlnnldd_HL_1(P2_Set_ILDlnnldd_HL_1),
@@ -972,8 +978,8 @@ module DECODER(
         .P2_Set_ILDIXlnnl_1(P2_Set_ILDIXlnnl_1),
         .P2_Set_ILDIYlnnl_1(P2_Set_ILDIYlnnl_1),
         .P2_Set_ICALLnn_1(P2_Set_ICALLnn_1),
-        .PR_Write_IX_high(PR_Write_IX_high),
-        .PR_Write_IY_high(PR_Write_IY_high),
+        .PR_Write_IX_high(_PR_Write_IX_high_di),
+        .PR_Write_IY_high(_PR_Write_IY_high_di),
         .PR_Dec_SP(_PR_Dec_SP_di),
         .PI_SelectDt_PC_high(_PI_SelectDt_PC_high_di),
         .PI_SelectAd_SP(_PI_SelectAd_SP_di),
@@ -1099,6 +1105,8 @@ module DECODER(
     wire _PI_SelectDt_H_dop;
     wire _PI_SelectDt_L_dop;
     wire _PI_SelectDt_A_dop;
+    wire _PI_SelectDt_C_dop;
+    wire _PI_SelectDt_E_dop;
     wire _PC_I0_dop;
     wire _PC_I1_dop;
     wire _PC_I2_dop;
@@ -1264,9 +1272,9 @@ module DECODER(
         .P2_Set_XIY4_1(P2_Set_XIY4_1),
         .PI_SelectAd_BC(PI_SelectAd_BC),
         .PI_SelectDt_B(_PI_SelectDt_B_dop),
-        .PI_SelectDt_C(PI_SelectDt_C),
+        .PI_SelectDt_C(_PI_SelectDt_C_dop),
         .PI_SelectDt_D(_PI_SelectDt_D_dop),
-        .PI_SelectDt_E(PI_SelectDt_E),
+        .PI_SelectDt_E(_PI_SelectDt_E_dop),
         .PI_SelectDt_H(_PI_SelectDt_H_dop),
         .PI_SelectDt_L(_PI_SelectDt_L_dop),
         .PI_SelectDt_A(_PI_SelectDt_A_dop),
@@ -1428,8 +1436,8 @@ module DECODER(
         .P2_Set_ILDrn_L(P2_Set_ILDrn_L),
         .P2_Set_ILDrn_A(P2_Set_ILDrn_A),
         .P2_Set_ILDlHLln(P2_Set_ILDlHLln),
-        .PA_Select_0x99_low(PA_Select_0x99_low),
-        .PF_Select_S_bit23(PF_Select_S_bit23),
+        .PA_Select_0xaa_low(PA_Select_0xaa_low),
+        .PF_Select_S_bit39(PF_Select_S_bit39),
         .PF_Select_Z_bit21(PF_Select_Z_bit21),
         .PF_Select_C_bit29(PF_Select_C_bit29),
         .PF_Select_H_bit28(PF_Select_H_bit28),
@@ -1618,6 +1626,8 @@ module DECODER(
     assign PI_SelectDt_A = (_PI_SelectDt_A_di | _PI_SelectDt_A_dop); // 2
     assign PI_SelectDt_B = (_PI_SelectDt_B_di | _PI_SelectDt_B_dop); // 2
     assign PI_SelectDt_D = (_PI_SelectDt_D_di | _PI_SelectDt_D_dop); // 2
+    assign PI_SelectDt_C = (_PI_SelectDt_C_di | _PI_SelectDt_C_dop); // 2
+    assign PI_SelectDt_E = (_PI_SelectDt_E_di | _PI_SelectDt_E_dop); // 2
     assign PA_Select_A_high = (_PA_Select_A_high_di | _PA_Select_A_high_dop); // 2
     assign PF_Write_S = (_PF_Write_S_di | _PF_Write_S_dop); // 2
     assign PF_Select_S_bit7 = (_PF_Select_S_bit7_di | _PF_Select_S_bit7_dop); // 2
@@ -1657,5 +1667,7 @@ module DECODER(
     assign PI_SelectAd_ALU = (_PI_SelectAd_ALU_di | _PI_SelectAd_ALU_dop); // 2
     assign PI_SelectDt_Dt = (_PI_SelectDt_Dt_di | _PI_SelectDt_Dt_dop); // 2
     assign PA_Select_OPold_low = (_PA_Select_OPold_low_di | _PA_Select_OPold_low_dop); // 2
+    assign PR_Write_IX_high = (_PR_Write_IX_high_di | _PR_Write_IX_high_dop); // 2
+    assign PR_Write_IY_high = (_PR_Write_IY_high_di | _PR_Write_IY_high_dop); // 2
 
 endmodule

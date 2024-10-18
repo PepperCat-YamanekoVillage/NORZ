@@ -1,5 +1,5 @@
 // ケーブル削減のため、レジスタ基板に搭載することになると思う
-// 54
+// 46
 module ALU_input_mux_OP(
         input wire [7:0] notOP,
         input wire [7:0] notOPold,
@@ -8,25 +8,25 @@ module ALU_input_mux_OP(
         input wire notPA_Select_OPOPold_low,
         input wire PA_Select_0xffOP_low,
         input wire PA_Select_OPold_low,
-        input wire PA_Select_OP_high,
-        output wire [15:0] Low,
-        output wire [7:0] High
+        input wire PA_Select_OPxx_low,
+        output wire [15:0] Low
     );
 
     wire _notPA_Select_OP_low_low0 = PA_Select_OP_low ~| PA_Select_IOP_low;
     wire _PA_Select_OP_low_low0 = _notPA_Select_OP_low_low0 ~| _notPA_Select_OP_low_low0;
     wire _notPA_Select_OP_low_low = PA_Select_0xffOP_low ~| _PA_Select_OP_low_low0;
-    wire _not_opold_low = ~((~notPA_Select_OPOPold_low)|PA_Select_OPold_low); // 2
-    wire _notPA_Select_OP_high = PA_Select_OP_high ~| PA_Select_OP_high;
+    wire _PA_Select_OPOPold_low = notPA_Select_OPOPold_low ~| notPA_Select_OPOPold_low;
+    wire _not_opold_low = _PA_Select_OPOPold_low ~| PA_Select_OPold_low;
+    wire _notPA_Select_OPxx_low = PA_Select_OPxx_low ~| _PA_Select_OPOPold_low;
 
-    assign Low[8] = notOP[0] ~| notPA_Select_OPOPold_low;
-    assign Low[9] = notOP[1] ~| notPA_Select_OPOPold_low;
-    assign Low[10] = notOP[2] ~| notPA_Select_OPOPold_low;
-    assign Low[11] = notOP[3] ~| notPA_Select_OPOPold_low;
-    assign Low[12] = notOP[4] ~| notPA_Select_OPOPold_low;
-    assign Low[13] = notOP[5] ~| notPA_Select_OPOPold_low;
-    assign Low[14] = notOP[6] ~| notPA_Select_OPOPold_low;
-    assign Low[15] = notOP[7] ~| notPA_Select_OPOPold_low;
+    assign Low[8] = notOP[0] ~| _notPA_Select_OPxx_low;
+    assign Low[9] = notOP[1] ~| _notPA_Select_OPxx_low;
+    assign Low[10] = notOP[2] ~| _notPA_Select_OPxx_low;
+    assign Low[11] = notOP[3] ~| _notPA_Select_OPxx_low;
+    assign Low[12] = notOP[4] ~| _notPA_Select_OPxx_low;
+    assign Low[13] = notOP[5] ~| _notPA_Select_OPxx_low;
+    assign Low[14] = notOP[6] ~| _notPA_Select_OPxx_low;
+    assign Low[15] = notOP[7] ~| _notPA_Select_OPxx_low;
 
     wire _low_OP0 = notOP[0] ~| _notPA_Select_OP_low_low;
     wire _low_OP1 = notOP[1] ~| _notPA_Select_OP_low_low;
@@ -62,14 +62,5 @@ module ALU_input_mux_OP(
     assign Low[5] = _notLow5 ~| _notLow5;
     assign Low[6] = _notLow6 ~| _notLow6;
     assign Low[7] = _notLow7 ~| _notLow7;
-
-    assign High[0] = notOP[0] ~| _notPA_Select_OP_high;
-    assign High[1] = notOP[1] ~| _notPA_Select_OP_high;
-    assign High[2] = notOP[2] ~| _notPA_Select_OP_high;
-    assign High[3] = notOP[3] ~| _notPA_Select_OP_high;
-    assign High[4] = notOP[4] ~| _notPA_Select_OP_high;
-    assign High[5] = notOP[5] ~| _notPA_Select_OP_high;
-    assign High[6] = notOP[6] ~| _notPA_Select_OP_high;
-    assign High[7] = notOP[7] ~| _notPA_Select_OP_high;
 
 endmodule

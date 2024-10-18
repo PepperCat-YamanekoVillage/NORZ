@@ -1,4 +1,4 @@
-// 346(3039)
+// 348(3045)
 module DECODER_op(
         input wire not_enable_X1,
         input wire not_enable_XOTR,
@@ -275,8 +275,8 @@ module DECODER_op(
         output wire P2_Set_ILDrn_L,
         output wire P2_Set_ILDrn_A,
         output wire P2_Set_ILDlHLln,
-        output wire PA_Select_0x99_low,
-        output wire PF_Select_S_bit23,
+        output wire PA_Select_0xaa_low,
+        output wire PF_Select_S_bit39,
         output wire PF_Select_Z_bit21,
         output wire PF_Select_C_bit29,
         output wire PF_Select_H_bit28,
@@ -600,6 +600,7 @@ module DECODER_op(
     wire _PA_Select_A_high_xotr;
     wire _PA_Select_Dt_low_xotr;
     wire _PA_Select_B_high_xotr;
+    wire _P2_Set_CMR_xotr;
 
     DECODER_op_XOTR xotr(
         .not_enable(not_enable_XOTR),
@@ -713,7 +714,8 @@ module DECODER_op(
         .PA_Select_DE_high(_PA_Select_DE_high_xotr),
         .PA_Select_A_high(_PA_Select_A_high_xotr),
         .PA_Select_Dt_low(_PA_Select_Dt_low_xotr),
-        .PA_Select_B_high(_PA_Select_B_high_xotr)
+        .PA_Select_B_high(_PA_Select_B_high_xotr),
+        .P2_Set_CMR(_P2_Set_CMR_xotr)
     );
 
     wire _PR_Inc_PC_xix;
@@ -1067,8 +1069,8 @@ module DECODER_op(
         .P2_Set_ILDrn_L(P2_Set_ILDrn_L),
         .P2_Set_ILDrn_A(P2_Set_ILDrn_A),
         .P2_Set_ILDlHLln(P2_Set_ILDlHLln),
-        .PA_Select_0x99_low(PA_Select_0x99_low),
-        .PF_Select_S_bit23(PF_Select_S_bit23),
+        .PA_Select_0xaa_low(PA_Select_0xaa_low),
+        .PF_Select_S_bit39(PF_Select_S_bit39),
         .PF_Select_Z_bit21(PF_Select_Z_bit21),
         .PF_Select_C_bit29(PF_Select_C_bit29),
         .PF_Select_PV_bit27(_PF_Select_PV_bit27_x1),
@@ -1175,7 +1177,7 @@ module DECODER_op(
     );
 
     assign PR_Reset_XPT = (_PR_Reset_XPT_xbi4 | _PR_Reset_XPT_xi40 | _PR_Reset_XPT_xotr | _PR_Reset_XPT_xix | _PR_Reset_XPT_x1); // 8
-    assign P2_Set_CMR = (_P2_Set_CMR_xi40 | _P2_Set_CMR_xix | _P2_Set_CMR_x1); // 2
+    assign P2_Set_CMR = (_P2_Set_CMR_xi40 | _P2_Set_CMR_xix | _P2_Set_CMR_x1 | _P2_Set_CMR_xotr); // 6
 
     wire _end = (_P2_Set_CM1_xbi4 | _P2_Set_CM1_xotr | _P2_Set_CM1_xix); // 4
     assign P2_Set_CM1 = (_end | _P2_Set_CM1_x1); // 2

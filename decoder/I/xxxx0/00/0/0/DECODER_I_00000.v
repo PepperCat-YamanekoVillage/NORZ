@@ -29,7 +29,7 @@ module DECODER_I_00000(
         output wire PR_InvertIn,
         output wire P2_Set_CMA,
         output wire P2_Set_IJPnn_1,
-        output wire PA_Select_OP_high,
+        output wire PA_Select_OPxx_low,
         output wire PA_NOP,
         output wire PR_Write_PC_high,
         output wire PR_Write_PC_low
@@ -171,7 +171,7 @@ module DECODER_I_00000(
         .P2_Set_IJPnn_1(P2_Set_IJPnn_1),
         .P2_Set_CM1(_P2_Set_CM1_11x), // <
         .P2_Reset_ITABLE(_P2_Reset_ITABLE_11x),
-        .PA_Select_OP_high(PA_Select_OP_high),
+        .PA_Select_OPxx_low(PA_Select_OPxx_low),
         .PA_NOP(PA_NOP),
         .PR_Write_PC_high(PR_Write_PC_high),
         .PR_Write_PC_low(PR_Write_PC_low),

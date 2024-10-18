@@ -18,9 +18,9 @@ module DECODER_op_XIX_11100001(
         output wire PR_Write_IX_low,
         output wire PR_Write_IY_low,
         output wire P2_Reset_XIX, // <
-        output wire PA_Select_IX_high, // >
+        output wire PR_Write_IX_high, // >
         output wire P2_Reset_XIY, // <
-        output wire PA_Select_IY_high // >
+        output wire PR_Write_IY_high // >
     );
 
     // wire [4:0] notXPT = ~XPT;
@@ -103,8 +103,8 @@ module DECODER_op_XIX_11100001(
     wire _nott9 = _decodedXPT[9] ~| _decodedXPT[9];
 
     assign P2_Reset_XIX = _nott9 ~| is_Y;
-    assign PA_Select_IX_high = P2_Reset_XIX;
+    assign PR_Write_IX_high = P2_Reset_XIX;
     assign P2_Reset_XIY = _nott9 ~| _not_is_Y;
-    assign PA_Select_IY_high = P2_Reset_XIY;
+    assign PR_Write_IY_high = P2_Reset_XIY;
 
 endmodule

@@ -233,6 +233,7 @@ VERILOG_SOURCES += ../alu/flag/ALU_flag_is8bitEvenParity.v
 VERILOG_SOURCES += ../alu/flag/ALU_flag.v
 VERILOG_SOURCES += ../alu/flag/ALU_flag_is8bitEqual.v
 VERILOG_SOURCES += ../alu/flag/ALU_flag_isOverflow.v
+VERILOG_SOURCES += ../alu/flag/ALU_flag_DAACY.v
 VERILOG_SOURCES += ../alu/ALU.v
 VERILOG_SOURCES += ../alu/input/ALU_input_mux_AF.v
 VERILOG_SOURCES += ../alu/input/ALU_input_mux_Dt.v
@@ -257,5 +258,7 @@ VERILOG_SOURCES += ../alu/calc/ALU_calc_r.v
 TOPLEVEL = NORZ
 
 MODULE = instruction_test
+
+WAVES = 1
 
 include $(shell cocotb-config --makefiles)/Makefile.sim

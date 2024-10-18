@@ -81,7 +81,7 @@ module DECODER_I_xxxx1(
         output wire P2_Set_IJPccnn_6_1,
         output wire P2_Set_IJPccnn_7_1,
         output wire P2_Set_CMA,
-        output wire PA_Select_OP_high,
+        output wire PA_Select_OPxx_low,
         output wire P2_Set_ICALLccnn_0_1,
         output wire P2_Set_ICALLccnn_1_1,
         output wire P2_Set_ICALLccnn_2_1,
@@ -282,7 +282,7 @@ module DECODER_I_xxxx1(
         .P2_Set_IJPccnn_7_1(P2_Set_IJPccnn_7_1),
         .P2_Set_CMA(P2_Set_CMA),
         .PR_Reset_XPT(_PR_Reset_XPT_01),
-        .PA_Select_OP_high(PA_Select_OP_high), // <
+        .PA_Select_OPxx_low(PA_Select_OPxx_low), // <
         .PA_NOP(_PA_NOP_01),
         .PR_Write_PC_high(_PR_Write_PC_high_01),
         .PR_Write_PC_low(_PR_Write_PC_low_01),

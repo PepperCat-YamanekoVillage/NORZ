@@ -6,11 +6,11 @@ module REGISTER_F_S(
         input wire notALUResult7,
         input wire notALUResult15,
         input wire notShadowF_S,
-        input wire notCY8,
+        input wire notDAACY8,
         input wire PF_Write_S,
         input wire notPF_Select_S_bit7,
         input wire notPF_Select_S_bit15,
-        input wire notPF_Select_S_bit23, //CY8
+        input wire notPF_Select_S_bit39, //CY8
         input wire PR_Ex,
         input wire notPR_Ex,
         input wire PR_Write,
@@ -25,17 +25,17 @@ module REGISTER_F_S(
     // wire notPR_Write = ~PR_Write;
     // wire _notPF_Select_S_bit7 = ~(PF_Write_S & (~notPF_Select_S_bit7));
     // wire _notPF_Select_S_bit15 = ~(PF_Write_S & (~notPF_Select_S_bit15));
-    // wire _notPF_Select_S_bit23 = ~(PF_Write_S & (~notPF_Select_S_bit23));
+    // wire _notPF_Select_S_bit39 = ~(PF_Write_S & (~notPF_Select_S_bit39));
     wire _notPF_Select_S_bit7 = notPF_Select_S_bit7;
     wire _notPF_Select_S_bit15 = notPF_Select_S_bit15;
-    wire _notPF_Select_S_bit23 = notPF_Select_S_bit23;
+    wire _notPF_Select_S_bit39 = notPF_Select_S_bit39;
 
     // and
 
     wire _new_S = notF_S ~| PF_Write_S;
     wire _new_ALU7 = notALUResult7 ~| _notPF_Select_S_bit7;
     wire _new_ALU15 = notALUResult15 ~| _notPF_Select_S_bit15;
-    wire _new_CY8 = notCY8 ~| _notPF_Select_S_bit23;
+    wire _new_CY8 = notDAACY8 ~| _notPF_Select_S_bit39;
 
     // or
 

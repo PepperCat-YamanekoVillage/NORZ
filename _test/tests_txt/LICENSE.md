@@ -1,0 +1,1 @@
+Files under this directory are not covered by the NORZ project's License.

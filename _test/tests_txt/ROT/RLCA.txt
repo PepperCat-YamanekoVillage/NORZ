@@ -1,0 +1,10 @@
+00 111 110 // LD A,0x4b
+01 001 011
+
+00 000 111 [A=10 010 110,FlagC=0,FlagN=0,FlagH=0]// RLCA
+
+00 000 111 [A=00 101 101,FlagC=1,FlagN=0,FlagH=0]// RLCA
+
+00 000 111 [A=01 011 010,FlagC=0,FlagN=0,FlagH=0]// RLCA
+
+ff fff fff

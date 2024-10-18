@@ -1,0 +1,36 @@
+00 000 110 // LD B,0x7f
+01 111 111
+
+00 001 110 // LD C,0xff
+11 111 111
+
+00 010 110 // LD D,0x4
+00 000 100
+
+00 011 110 // LD E,0x8
+00 001 000
+
+00 100 110 // LD H,0xf
+00 001 111
+
+00 101 110 // LD L,0x30
+00 110 000
+
+00 111 110 // LD A,0x87
+10 000 111
+
+00 000 100 [B=10 000 000,FlagZ=0,FlagPV=1,FlagS=1,FlagN=0,FlagH=1] // INC B
+
+00 001 100 [C=00 000 000,FlagZ=1,FlagPV=0,FlagS=0,FlagN=0,FlagH=1] // INC C
+
+00 010 100 [D=00 000 101,FlagZ=0,FlagPV=0,FlagS=0,FlagN=0,FlagH=0] // INC D
+
+00 011 100 [E=00 001 001,FlagZ=0,FlagPV=0,FlagS=0,FlagN=0,FlagH=0] // INC E
+
+00 100 100 [H=00 010 000,FlagZ=0,FlagPV=0,FlagS=0,FlagN=0,FlagH=1] // INC H
+
+00 101 100 [L=00 110 001,FlagZ=0,FlagPV=0,FlagS=0,FlagN=0,FlagH=0] // INC L
+
+00 111 100 [A=10 001 000,FlagZ=0,FlagPV=0,FlagS=1,FlagN=0,FlagH=0] // INC A
+
+ff fff fff

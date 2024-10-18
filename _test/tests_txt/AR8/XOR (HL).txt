@@ -1,0 +1,23 @@
+00 100 001 // LD HL,0xfe00
+00 000 000
+11 111 110
+
+00 100 010 // LD (0xfe00),HL
+00 000 000
+11 111 110
+
+00 111 110 // LD A,0x00
+00 000 000
+
+10 101 110 [A=00 000 000,FlagC=0,FlagZ=1,FlagPV=1,FlagS=0,FlagN=0,FlagH=0] // XOR (HL)
+
+00 100 001 // LD HL,0xfe01
+00 000 001
+11 111 110
+
+00 111 110 // LD A,0x03
+00 000 011
+
+10 101 110 [A=11 111 101,FlagC=0,FlagZ=0,FlagPV=0,FlagS=1,FlagN=0,FlagH=0] // XOR (HL)
+
+ff fff fff

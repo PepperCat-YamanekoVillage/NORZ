@@ -1,4 +1,4 @@
-// 93(618)
+// 95(622)
 module DECODER_op_XOTR(
         input wire not_enable,
         input wire [4:0] XPT,
@@ -111,7 +111,8 @@ module DECODER_op_XOTR(
         output wire PA_Select_DE_high,
         output wire PA_Select_A_high,
         output wire PA_Select_Dt_low,
-        output wire PA_Select_B_high
+        output wire PA_Select_B_high,
+        output wire P2_Set_CMR
     );
 
     // wire [4:0] notXPT = ~XPT;
@@ -184,6 +185,7 @@ module DECODER_op_XOTR(
     wire _PC_W2_0;
     wire _PI_SelectDt_Dt_0;
     wire _PI_SelectAd_HL_0;
+    wire _PR_InvertIn_0;
 
     DECODER_op_XOTR_01 d01(
         .enable(_01xxxxxx),
@@ -228,7 +230,7 @@ module DECODER_op_XOTR(
         .PR_Write_H(_PR_Write_H_0),
         .PR_Write_L(_PR_Write_L_0),
         .PR_Write_A(PR_Write_A),
-        .PR_InvertIn(PR_InvertIn),
+        .PR_InvertIn(_PR_InvertIn_0),
         .PA_Select_HL_high(_PA_Select_HL_high_0),
         .PF_Write_C(PF_Write_C),
         .PF_Select_Z_bit34(PF_Select_Z_bit34),
@@ -284,7 +286,8 @@ module DECODER_op_XOTR(
         .PI_SelectDt_Dt(_PI_SelectDt_Dt_0),
         .PI_SelectAd_HL(_PI_SelectAd_HL_0),
         .PA_RRD(PA_RRD),
-        .PA_RLD(PA_RLD)
+        .PA_RLD(PA_RLD),
+        .P2_Set_CMR(P2_Set_CMR)
     );
 
     wire _PI_SelectAd_BC_1;
@@ -331,6 +334,7 @@ module DECODER_op_XOTR(
     wire _PC_W2_1;
     wire _PI_SelectDt_Dt_1;
     wire _PI_SelectAd_HL_1;
+    wire _PR_InvertIn_1;
 
     DECODER_op_XOTR_10 d10(
         .enable(_10xxxxxx),
@@ -393,7 +397,8 @@ module DECODER_op_XOTR(
         .PC_O0(_PC_O0_1),
         .PC_O1(_PC_O1_1),
         .PC_O2(_PC_O2_1),
-        .PC_O3(_PC_O3_1)
+        .PC_O3(_PC_O3_1),
+        .PR_InvertIn(_PR_InvertIn_1)
     );
 
     assign PR_Reset_XPT = (_PR_Reset_XPT_0 | _PR_Reset_XPT_1); // 2 
@@ -442,5 +447,6 @@ module DECODER_op_XOTR(
     assign PC_W2 = (_PC_W2_0 | _PC_W2_1); // 2
     assign PI_SelectDt_Dt = (_PI_SelectDt_Dt_0 | _PI_SelectDt_Dt_1); // 2
     assign PI_SelectAd_HL = (_PI_SelectAd_HL_0 | _PI_SelectAd_HL_1); // 2
+    assign PR_InvertIn = (_PR_InvertIn_0 | _PR_InvertIn_1); // 2
 
 endmodule

@@ -1,4 +1,4 @@
-// 37(52)
+// 45(60)
 module REGISTER_F_Z(
         // input wire clk,
         input wire Clk,
@@ -61,6 +61,15 @@ module REGISTER_F_Z(
 
     wire _notIsResult0 = isResult0 ~| isResult0;
 
+    wire _ALUResult0 = notALUResult[0] ~| notALUResult[0];
+    wire _ALUResult1 = notALUResult[1] ~| notALUResult[1];
+    wire _ALUResult2 = notALUResult[2] ~| notALUResult[2];
+    wire _ALUResult3 = notALUResult[3] ~| notALUResult[3];
+    wire _ALUResult4 = notALUResult[4] ~| notALUResult[4];
+    wire _ALUResult5 = notALUResult[5] ~| notALUResult[5];
+    wire _ALUResult6 = notALUResult[6] ~| notALUResult[6];
+    wire _ALUResult7 = notALUResult[7] ~| notALUResult[7];
+
     // and
 
     wire _new_Z = notF_Z ~| PF_Write_Z;
@@ -68,14 +77,14 @@ module REGISTER_F_Z(
     wire _new_CY4 = notCY4 ~| _notPF_Select_Z_bit21;
     wire _new_isResultLow0 = notIsResultLow0 ~| _notPF_Select_Z_bit24;
     wire _new_isResult0 = _notIsResult0 ~| _notPF_Select_Z_bit34;
-    wire _new_ALU0 = notALUResult[0] ~| _notPF_Select_Z_bit40;
-    wire _new_ALU1 = notALUResult[1] ~| _notPF_Select_Z_bit41;
-    wire _new_ALU2 = notALUResult[2] ~| _notPF_Select_Z_bit42;
-    wire _new_ALU3 = notALUResult[3] ~| _notPF_Select_Z_bit43;
-    wire _new_ALU4 = notALUResult[4] ~| _notPF_Select_Z_bit44;
-    wire _new_ALU5 = notALUResult[5] ~| _notPF_Select_Z_bit45;
-    wire _new_ALU6 = notALUResult[6] ~| _notPF_Select_Z_bit46;
-    wire _new_ALU7 = notALUResult[7] ~| _notPF_Select_Z_bit47;
+    wire _new_ALU0 = _ALUResult0 ~| _notPF_Select_Z_bit40;
+    wire _new_ALU1 = _ALUResult1 ~| _notPF_Select_Z_bit41;
+    wire _new_ALU2 = _ALUResult2 ~| _notPF_Select_Z_bit42;
+    wire _new_ALU3 = _ALUResult3 ~| _notPF_Select_Z_bit43;
+    wire _new_ALU4 = _ALUResult4 ~| _notPF_Select_Z_bit44;
+    wire _new_ALU5 = _ALUResult5 ~| _notPF_Select_Z_bit45;
+    wire _new_ALU6 = _ALUResult6 ~| _notPF_Select_Z_bit46;
+    wire _new_ALU7 = _ALUResult7 ~| _notPF_Select_Z_bit47;
 
     // or
 

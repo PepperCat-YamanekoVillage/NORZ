@@ -93,8 +93,8 @@ module DECODER_op_X1_00(
         output wire P2_Set_ILDrn_L,
         output wire P2_Set_ILDrn_A,
         output wire P2_Set_ILDlHLln,
-        output wire PA_Select_0x99_low,
-        output wire PF_Select_S_bit23,
+        output wire PA_Select_0xaa_low,
+        output wire PF_Select_S_bit39,
         output wire PF_Select_Z_bit21,
         output wire PF_Select_C_bit29,
         output wire PF_Select_PV_bit27,
@@ -382,9 +382,9 @@ module DECODER_op_X1_00(
         .P2_Set_ILDrn_L(P2_Set_ILDrn_L),
         .P2_Set_ILDrn_A(P2_Set_ILDrn_A),
         .P2_Set_ILDlHLln(P2_Set_ILDlHLln),
-        .PA_Select_A_high(_PA_Select_A_high_11), // <
-        .PA_Select_0x99_low(PA_Select_0x99_low),
-        .PF_Select_S_bit23(PF_Select_S_bit23),
+        .PA_Select_A_high(_PA_Select_A_high_11),
+        .PA_Select_0xaa_low(PA_Select_0xaa_low), // <
+        .PF_Select_S_bit39(PF_Select_S_bit39),
         .PF_Select_Z_bit21(PF_Select_Z_bit21), // >
         .PF_Write_S(_PF_Write_S_11),
         .PF_Write_Z(_PF_Write_Z_11),

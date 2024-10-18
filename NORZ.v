@@ -1,4 +1,4 @@
-// 112(13741)
+// 112(13751)
 module NORZ(
         output wire [15:0] interfaceAd,
         // 本当はinterfaceDt_inとinterfaceDt_outはinoutで同一だけどdigitalJSがエラーおこすので分けている
@@ -45,6 +45,8 @@ module NORZ(
         output wire [4:0] debugXPT,
         output wire [7:0] debugITABLE,
         output wire [15:0] debugALU,
+        output wire [15:0] debugHigh,
+        output wire [15:0] debugLow,
         output wire debugIFF1,
         output wire debugIFF2,
         output wire debugIMFa,
@@ -98,8 +100,10 @@ module NORZ(
         output wire PR_Write_OP,
         output wire PR_Write_D,
         output wire PR_Write_A,
+        output wire P2_Set_CM1,
+        output wire PR_Reset_XPT,
         output wire PR_InvertIn,
-        output wire PR_Reset_XPT
+        output wire PR_Write_B
     );
 
     // for debug
@@ -187,7 +191,7 @@ module NORZ(
 
     wire [7:0] notDin = ~Din; // 8
 
-    ALU alu( // 1832 + 24
+    ALU alu( // 1819 + 24
         .notA(notA),
         .notF(notF),
         .notB(notB),
@@ -249,7 +253,7 @@ module NORZ(
         .notPA_Select_OPOPold_low(~PA_Select_OPOPold_low),
         .PA_Select_0xffOP_low(PA_Select_0xffOP_low),
         .PA_Select_OPold_low(PA_Select_OPold_low),
-        .PA_Select_OP_high(PA_Select_OP_high),
+        .PA_Select_OPxx_low(PA_Select_OPxx_low),
         .PA_Select_0x1_low(PA_Select_0x1_low),
         .PA_Select_0x8_low(PA_Select_0x8_low),
         .PA_Select_0x10_low(PA_Select_0x10_low),
@@ -259,7 +263,7 @@ module NORZ(
         .PA_Select_0x30_low(PA_Select_0x30_low),
         .PA_Select_0x38_low(PA_Select_0x38_low),
         .PA_Select_0x66_low(PA_Select_0x66_low),
-        .PA_Select_0x99_low(PA_Select_0x99_low),
+        .PA_Select_0xaa_low(PA_Select_0xaa_low),
         .PA_Select_0x06_low(PA_Select_0x06_low),
         .PA_Select_0x60_low(PA_Select_0x60_low),
         .PA_Select_0x2_low(PA_Select_0x2_low),
@@ -299,10 +303,13 @@ module NORZ(
         .is8bitOverflow(is8bitOverflow),
         .is16bitOverflow(is16bitOverflow),
         .notIs8bitEvenParity(notIs8bitEvenParity),
-        .DAA_Flag_H(DAA_Flag_H)
+        .DAA_Flag_H(DAA_Flag_H),
+        .notDAACY8(notDAACY8),
+        .debugHigh(debugHigh),
+        .debugLow(debugLow)
     );
 
-    DECODER dec( // 5307 + 6
+    DECODER dec( // 5321 + 6
         .Clk(Clk),
         .notClk(notClk),
         .RESET(RESET),
@@ -429,7 +436,7 @@ module NORZ(
         .PR_InvertIn(PR_InvertIn),
         .P2_Set_CMA(P2_Set_CMA),
         .P2_Set_IJPnn_1(P2_Set_IJPnn_1),
-        .PA_Select_OP_high(PA_Select_OP_high),
+        .PA_Select_OPxx_low(PA_Select_OPxx_low),
         .PR_Write_B(PR_Write_B),
         .PR_Write_C(PR_Write_C),
         .PR_Write_D(PR_Write_D),
@@ -698,8 +705,8 @@ module NORZ(
         .P2_Set_ILDrn_L(P2_Set_ILDrn_L),
         .P2_Set_ILDrn_A(P2_Set_ILDrn_A),
         .P2_Set_ILDlHLln(P2_Set_ILDlHLln),
-        .PA_Select_0x99_low(PA_Select_0x99_low),
-        .PF_Select_S_bit23(PF_Select_S_bit23),
+        .PA_Select_0xaa_low(PA_Select_0xaa_low),
+        .PF_Select_S_bit39(PF_Select_S_bit39),
         .PF_Select_Z_bit21(PF_Select_Z_bit21),
         .PF_Select_C_bit29(PF_Select_C_bit29),
         .PF_Select_H_bit28(PF_Select_H_bit28),
@@ -1085,7 +1092,7 @@ module NORZ(
         .interfaceIORQ(interfaceIORQ)
     );
 
-    REGISTER reg_( // 3831 + 34
+    REGISTER reg_( // 3840 + 34
         .Clk(Clk),
         .notClk(notClk),
         .notALUResult(notALU),
@@ -1105,6 +1112,7 @@ module NORZ(
         .is8bitOverflow(is8bitOverflow),
         .notIs8bitEvenParity(notIs8bitEvenParity),
         .is16bitOverflow(is16bitOverflow),
+        .notDAACY8(notDAACY8),
         .PR_InvertIn(PR_InvertIn),
         // AF
         .PR_Write_A(PR_Write_A),
@@ -1112,7 +1120,7 @@ module NORZ(
         .PF_Write_S(PF_Write_S),
         .notPF_Select_S_bit7(~PF_Select_S_bit7),
         .notPF_Select_S_bit15(~PF_Select_S_bit15),
-        .notPF_Select_S_bit23(~PF_Select_S_bit23),
+        .notPF_Select_S_bit39(~PF_Select_S_bit39),
         .PF_Write_Z(PF_Write_Z),
         .notPF_Select_Z_bit19(~PF_Select_Z_bit19),
         .notPF_Select_Z_bit21(~PF_Select_Z_bit21),

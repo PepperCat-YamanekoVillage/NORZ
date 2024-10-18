@@ -1,4 +1,4 @@
-// 49(531)
+// 45(531)
 module DECODER_op_XIX(
         input wire not_enable,
         input wire is_Y,
@@ -178,11 +178,11 @@ module DECODER_op_XIX(
         .PF_Select_C_bit32(PF_Select_C_bit32),
         .PF_Select_N_bit16(PF_Select_N_bit16),
         .PF_Select_H_bit31(PF_Select_H_bit31), // >
-        .PA_Select_IX_high(_PA_Select_IX_high_00), // <
+        .PA_Select_IX_high(PA_Select_IX_high), // <
         .PR_Write_IX_high(_PR_Write_IX_high_00),
         .PR_Write_IX_low(_PR_Write_IX_low_00), // >
         .P2_Reset_XIX(_P2_Reset_XIX_00),
-        .PA_Select_IY_high(_PA_Select_IY_high_00), // <
+        .PA_Select_IY_high(PA_Select_IY_high), // <
         .PR_Write_IY_high(_PR_Write_IY_high_00),
         .PR_Write_IY_low(_PR_Write_IY_low_00), // >
         .P2_Reset_XIY(_P2_Reset_XIY_00),
@@ -296,8 +296,6 @@ module DECODER_op_XIX(
     wire _P2_Reset_XIY_11;
     wire _PR_Write_IX_low_11;
     wire _PR_Write_IY_low_11;
-    wire _PA_Select_IX_high_11;
-    wire _PA_Select_IY_high_11;
     wire _PA_Select_IX_low_11;
     wire _PA_Select_IY_low_11;
     wire _PR_Write_IX_high_11;
@@ -326,8 +324,6 @@ module DECODER_op_XIX(
         .PR_InvertIn(PR_InvertIn),
         .PR_Write_IX_low(_PR_Write_IX_low_11),
         .PR_Write_IY_low(_PR_Write_IY_low_11),
-        .PA_Select_IX_high(_PA_Select_IX_high_11),
-        .PA_Select_IY_high(_PA_Select_IY_high_11),
         .PA_NOP(PA_NOP),
         .PR_Write_Dt(PR_Write_Dt),
         .PR_Write_Dtex(PR_Write_Dtex),
@@ -361,8 +357,6 @@ module DECODER_op_XIX(
     assign P2_Reset_XIX = (_P2_Reset_XIX_00 | _P2_Reset_XIX_01 | _P2_Reset_XIX_10 | _P2_Reset_XIX_11); // 6
     assign P2_Reset_XIY = (_P2_Reset_XIY_00 | _P2_Reset_XIY_01 | _P2_Reset_XIY_10 | _P2_Reset_XIY_11); // 6
 
-    assign PA_Select_IX_high = (_PA_Select_IX_high_00 | _PA_Select_IX_high_11); // 2
-    assign PA_Select_IY_high = (_PA_Select_IY_high_00 | _PA_Select_IY_high_11); // 2
     assign PA_Select_IX_low = (_PA_Select_IX_low_00 | _PA_Select_IX_low_11); // 2
     assign PA_Select_IY_low = (_PA_Select_IY_low_00 | _PA_Select_IY_low_11); // 2
     assign PR_Write_IX_high = (_PR_Write_IX_high_00 | _PR_Write_IX_high_11); // 2

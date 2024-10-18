@@ -18,7 +18,7 @@ module DECODER_I_010x1(
         output wire P2_Set_IJPccnn_7_1,
         output wire P2_Set_CMA,
         output wire PR_Reset_XPT,
-        output wire PA_Select_OP_high, // <
+        output wire PA_Select_OPxx_low, // <
         output wire PA_NOP,
         output wire PR_Write_PC_high,
         output wire PR_Write_PC_low,
@@ -135,7 +135,7 @@ module DECODER_I_010x1(
     // _1
     //
 
-    assign PA_Select_OP_high = _isCC;
+    assign PA_Select_OPxx_low = _isCC;
     assign PA_NOP = _isCC;
     assign PR_Write_PC_high = _isCC;
     assign PR_Write_PC_low = _isCC;

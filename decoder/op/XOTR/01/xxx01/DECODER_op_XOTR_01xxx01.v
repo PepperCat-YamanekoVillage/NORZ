@@ -40,7 +40,8 @@ module DECODER_op_XOTR_01xxx01(
         output wire P2_Set_ILDddlnnl_BC_0,
         output wire P2_Set_ILDddlnnl_DE_0,
         output wire P2_Set_ILDddlnnl_HL_0,
-        output wire P2_Set_ILDddlnnl_SP_0
+        output wire P2_Set_ILDddlnnl_SP_0,
+        output wire P2_Set_CMR
     );
 
     // wire [4:0] notXPT = ~XPT;
