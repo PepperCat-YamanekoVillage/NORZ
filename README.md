@@ -7,9 +7,23 @@ NORZ is a project to create a Z80-compatible CPU using only NOR gates.
 The project is progressing according to the following roadmap:
 - [x] Draft the CPU design based on the Z80 specifications
 - [x] Write the Verilog code
-- [ ] Debug the Verilog code
+- [x] Debug the Verilog code
 - [ ] Implement the design on a board
 - [ ] Debug the board
+
+</br>
+
+### My blogs (ja)
+
+[Gates consisting of NOR](https://yamanekovillage.com/articles/norz_1/)
+
+[Modules consisting of NOR](https://yamanekovillage.com/articles/norz_2/)
+
+[NORZ(Z80)\'s architecture](https://yamanekovillage.com/articles/norz_3/)
+
+[NORZ on Verilog](https://yamanekovillage.com/articles/norz_4/)
+
+[Debuging NORZ on Verilog](https://yamanekovillage.com/articles/norz_5/)
 
 </br>
 
