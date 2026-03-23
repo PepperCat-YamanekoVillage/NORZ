@@ -8,8 +8,10 @@ The project is progressing according to the following roadmap:
 - [x] Draft the CPU design based on the Z80 specifications
 - [x] Write the Verilog code
 - [x] Debug the Verilog code
-- [ ] Implement the design on a board
-- [ ] Debug the board
+- [x] Implement the design on boards
+- [x] Make a test board
+- [x] Test the test board
+- [ ] Debug the boards
 
 </br>
 
@@ -23,7 +25,11 @@ The project is progressing according to the following roadmap:
 
 [NORZ on Verilog](https://yamanekovillage.com/articles/norz_4/)
 
-[Debuging NORZ on Verilog](https://yamanekovillage.com/articles/norz_5/)
+[Debuging Verilog codes](https://yamanekovillage.com/articles/norz_5/)
+
+[Design PCBs](https://yamanekovillage.com/articles/norz_6/)
+
+[Make a test board (Failed)](https://yamanekovillage.com/articles/norz_7/)
 
 </br>
 
