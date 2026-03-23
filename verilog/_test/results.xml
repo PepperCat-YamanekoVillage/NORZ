@@ -1,6 +1,0 @@
-<testsuites name="results">
-  <testsuite name="all" package="all">
-    <property name="random_seed" value="1729219643" />
-    <testcase name="tb_instruction" classname="instruction_test" file="/Users/Pepper/verilog/norz_verilog/_test/instruction_test.py" lineno="338" time="1.7699739933013916" sim_time_ns="6965000.001" ratio_time="3935086.0675691287" />
-  </testsuite>
-</testsuites>
