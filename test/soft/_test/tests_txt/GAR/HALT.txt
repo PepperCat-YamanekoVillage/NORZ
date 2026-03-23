@@ -1,0 +1,3 @@
+01 110 110 [LHALT=0]// HALT
+
+ff fff fff

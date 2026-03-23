@@ -1,0 +1,240 @@
+PASS AR16/ADC HL,ss.txt
+PASS AR16/ADD HL,ss.txt
+PASS AR16/ADD IX,pp.txt
+PASS AR16/ADD IY,rr.txt
+PASS AR16/DEC IX.txt
+PASS AR16/DEC IY.txt
+PASS AR16/DEC ss.txt
+PASS AR16/INC IX.txt
+PASS AR16/INC IY.txt
+PASS AR16/INC ss.txt
+PASS AR16/SBC HL,ss.txt
+PASS AR8/ADC A,(HL).txt
+PASS AR8/ADC A,(IX+d).txt
+PASS AR8/ADC A,(IY+d).txt
+PASS AR8/ADC A,n.txt
+PASS AR8/ADC A,r.txt
+PASS AR8/ADD A,(HL).txt
+PASS AR8/ADD A,(IX+d).txt
+PASS AR8/ADD A,(IY+d).txt
+PASS AR8/ADD A,n.txt
+PASS AR8/ADD A,r.txt
+PASS AR8/AND (HL).txt
+PASS AR8/AND (IX+d).txt
+PASS AR8/AND (IY+d).txt
+PASS AR8/AND n.txt
+PASS AR8/AND r.txt
+PASS AR8/CP (HL).txt
+PASS AR8/CP (IX+d).txt
+PASS AR8/CP (IY+d).txt
+PASS AR8/CP n.txt
+PASS AR8/CP r.txt
+PASS AR8/DEC (HL).txt
+PASS AR8/DEC (IX+d).txt
+PASS AR8/DEC (IY+d).txt
+PASS AR8/DEC r.txt
+PASS AR8/INC (HL).txt
+PASS AR8/INC (IX+d).txt
+PASS AR8/INC (IY+d).txt
+PASS AR8/INC r.txt
+PASS AR8/OR (HL).txt
+PASS AR8/OR (IX+d).txt
+PASS AR8/OR (IY+d).txt
+PASS AR8/OR n.txt
+PASS AR8/OR r.txt
+PASS AR8/SBC (HL).txt
+PASS AR8/SBC (IX+d).txt
+PASS AR8/SBC (IY+d).txt
+PASS AR8/SBC n.txt
+PASS AR8/SBC r.txt
+PASS AR8/SUB (HL).txt
+PASS AR8/SUB (IX+d).txt
+PASS AR8/SUB (IY+d).txt
+PASS AR8/SUB n.txt
+PASS AR8/SUB r.txt
+PASS AR8/XOR (HL).txt
+PASS AR8/XOR (IX+d).txt
+PASS AR8/XOR (IY+d).txt
+PASS AR8/XOR n.txt
+PASS AR8/XOR r.txt
+PASS BIT/BIT b,(HL).txt
+PASS BIT/BIT b,(IX+d).txt
+PASS BIT/BIT b,(IY+d).txt
+PASS BIT/BIT b,r.txt
+PASS BIT/RES b,(HL).txt
+PASS BIT/RES b,(IX+d).txt
+PASS BIT/RES b,(IY+d).txt
+PASS BIT/RES b,r.txt
+PASS BIT/SET b,(HL).txt
+PASS BIT/SET b,(IX+d).txt
+PASS BIT/SET b,(IY+d).txt
+PASS BIT/SET b,r.txt
+PASS CR/CALL cc,nn - c.txt
+PASS CR/CALL cc,nn - nc.txt
+PASS CR/CALL cc,nn - npv.txt
+PASS CR/CALL cc,nn - ns.txt
+PASS CR/CALL cc,nn - nz.txt
+PASS CR/CALL cc,nn - pv.txt
+PASS CR/CALL cc,nn - s.txt
+PASS CR/CALL cc,nn - z.txt
+PASS CR/CALL nn.txt
+PASS CR/RET cc - c.txt
+PASS CR/RET cc - nc.txt
+PASS CR/RET cc - npv.txt
+PASS CR/RET cc - ns.txt
+PASS CR/RET cc - nz.txt
+PASS CR/RET cc - pv.txt
+PASS CR/RET cc - s.txt
+PASS CR/RET cc - z.txt
+PASS CR/RET.txt
+PASS CR/RETI.txt
+PASS CR/RST p - 0.txt
+PASS CR/RST p - 1.txt
+PASS CR/RST p - 2.txt
+PASS CR/RST p - 3.txt
+PASS CR/RST p - 4.txt
+PASS CR/RST p - 5.txt
+PASS CR/RST p - 6.txt
+PASS CR/RST p - 7.txt
+PASS EX/CPD.txt
+PASS EX/CPDR.txt
+PASS EX/CPI.txt
+PASS EX/CPIR.txt
+PASS EX/EX (SP),HL.txt
+PASS EX/EX (SP),IX.txt
+PASS EX/EX (SP),IY.txt
+PASS EX/EX AF,AF.txt
+PASS EX/EX DE,HL.txt
+PASS EX/EXX.txt
+PASS EX/LDD.txt
+PASS EX/LDDR.txt
+PASS EX/LDI.txt
+PASS EX/LDIR.txt
+PASS GAR/CCF.txt
+PASS GAR/CPL.txt
+PASS GAR/DAA.txt
+PASS GAR/DI.txt
+PASS GAR/EI.txt
+PASS GAR/HALT.txt
+PASS GAR/IM 0.txt
+PASS GAR/IM 1.txt
+PASS GAR/IM 2.txt
+PASS GAR/NEG.txt
+PASS GAR/NOP.txt
+PASS GAR/SCF.txt
+PASS IO/IN A,(n).txt
+PASS IO/IN r,(C).txt
+PASS IO/IND.txt
+PASS IO/INDR.txt
+PASS IO/INI.txt
+PASS IO/INIR.txt
+PASS IO/OTDR.txt
+PASS IO/OTIR.txt
+PASS IO/OUT (C),r.txt
+PASS IO/OUT (n),A.txt
+PASS IO/OUTD.txt
+PASS IO/OUTI.txt
+PASS JP/DJNZ e.txt
+PASS JP/JP (HL).txt
+PASS JP/JP (IX).txt
+PASS JP/JP (IY).txt
+PASS JP/JP cc,nn - c.txt
+PASS JP/JP cc,nn - nc.txt
+PASS JP/JP cc,nn - npv.txt
+PASS JP/JP cc,nn - ns.txt
+PASS JP/JP cc,nn - nz.txt
+PASS JP/JP cc,nn - pv.txt
+PASS JP/JP cc,nn - s.txt
+PASS JP/JP cc,nn - z.txt
+PASS JP/JP nn.txt
+PASS JP/JR C,e.txt
+PASS JP/JR NC,e.txt
+PASS JP/JR NZ,e.txt
+PASS JP/JR Z,e.txt
+PASS JP/JR e - minus.txt
+PASS JP/JR e - plus.txt
+PASS LD16/LD (nn),HL.txt
+PASS LD16/LD (nn),IX.txt
+PASS LD16/LD (nn),IY.txt
+PASS LD16/LD (nn),dd.txt
+PASS LD16/LD HL,(nn).txt
+PASS LD16/LD IX,(nn).txt
+PASS LD16/LD IX,nn.txt
+PASS LD16/LD IY,(nn).txt
+PASS LD16/LD IY,nn.txt
+PASS LD16/LD SP,HL.txt
+PASS LD16/LD SP,IX.txt
+PASS LD16/LD SP,IY.txt
+PASS LD16/LD dd,(nn).txt
+PASS LD16/LD dd,nn.txt
+PASS LD16/PUSH IX | POP IX.txt
+PASS LD16/PUSH IY | POP IY.txt
+PASS LD16/PUSH qq | POP qq.txt
+PASS LD8/LD (BC),A.txt
+PASS LD8/LD (DE),A.txt
+PASS LD8/LD (HL),n.txt
+PASS LD8/LD (HL),r.txt
+PASS LD8/LD (IX+d),n.txt
+PASS LD8/LD (IX+d),r.txt
+PASS LD8/LD (IY+d),n.txt
+PASS LD8/LD (IY+d),r.txt
+PASS LD8/LD (nn),A.txt
+PASS LD8/LD A,(BC).txt
+PASS LD8/LD A,(DE).txt
+PASS LD8/LD A,(nn).txt
+PASS LD8/LD A,I.txt
+PASS LD8/LD A,R.txt
+PASS LD8/LD I,A.txt
+PASS LD8/LD R,A.txt
+PASS LD8/LD r,(HL).txt
+PASS LD8/LD r,(IX+d).txt
+PASS LD8/LD r,(IY+d).txt
+PASS LD8/LD r,n.txt
+PASS LD8/LD r,r.txt
+PASS MEGA/JP loop 0000.txt
+PASS MEGA/LD (nn),HL write.txt
+PASS ROT/RL (HL).txt
+PASS ROT/RL (IX+d).txt
+PASS ROT/RL (IY+d).txt
+PASS ROT/RL r.txt
+PASS ROT/RLA.txt
+PASS ROT/RLC (HL).txt
+PASS ROT/RLC (IX+d).txt
+PASS ROT/RLC (IY+d).txt
+PASS ROT/RLC r.txt
+PASS ROT/RLCA.txt
+PASS ROT/RLD.txt
+PASS ROT/RR (HL).txt
+PASS ROT/RR (IX+d).txt
+PASS ROT/RR (IY+d).txt
+PASS ROT/RR r.txt
+PASS ROT/RRA.txt
+PASS ROT/RRC (HL).txt
+PASS ROT/RRC (IX+d).txt
+PASS ROT/RRC (IY+d).txt
+PASS ROT/RRC r.txt
+PASS ROT/RRCA.txt
+PASS ROT/RRD.txt
+PASS ROT/SLA (HL).txt
+PASS ROT/SLA (IX+d).txt
+PASS ROT/SLA (IY+d).txt
+PASS ROT/SLA r.txt
+PASS ROT/SRA (HL).txt
+PASS ROT/SRA (IX+d).txt
+PASS ROT/SRA (IY+d).txt
+PASS ROT/SRA r.txt
+PASS ROT/SRL (HL).txt
+PASS ROT/SRL (IX+d).txt
+PASS ROT/SRL (IY+d).txt
+PASS ROT/SRL r.txt
+PASS _INTERRUPT/BUSRQ.txt
+PASS _INTERRUPT/INT - 0CALL.txt
+PASS _INTERRUPT/INT - 0RST.txt
+PASS _INTERRUPT/INT - 1.txt
+PASS _INTERRUPT/INT - 2.txt
+PASS _INTERRUPT/NMI - di.txt
+PASS _INTERRUPT/NMI - ei.txt
+PASS _SAMPLE/divide.txt
+PASS _SAMPLE/multiply.txt
+
+Result: passed=238 failed=0

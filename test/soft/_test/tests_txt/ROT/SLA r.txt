@@ -1,0 +1,16 @@
+00 000 110 // LD B,0x0
+00 000 000
+
+00 001 110 // LD C,0xf7
+11 111 110
+
+11 001 011 // SLA B
+00 100 000 [B=00 000 000,FlagC=0,FlagZ=1,FlagPV=1,FlagS=0,FlagN=0,FlagH=0]
+
+11 001 011 // SLA C
+00 100 001 [C=11 111 100,FlagC=1,FlagZ=0,FlagPV=1,FlagS=1,FlagN=0,FlagH=0]
+
+11 001 011 // SLA C
+00 100 001 [C=11 111 000,FlagC=1,FlagZ=0,FlagPV=0,FlagS=1,FlagN=0,FlagH=0]
+
+ff fff fff

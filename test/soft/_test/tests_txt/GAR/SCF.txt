@@ -1,0 +1,3 @@
+00 110 111 [FlagC=1,FlagN=0,FlagH=0] // SCF
+
+ff fff fff

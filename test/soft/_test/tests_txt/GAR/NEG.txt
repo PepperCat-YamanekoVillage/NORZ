@@ -1,0 +1,19 @@
+00 111 110 // LD A,0x00
+00 000 000
+
+11 101 101 // NEG
+01 000 100 [A=00 000 000,FlagC=0,FlagZ=1,FlagPV=0,FlagS=0,FlagN=1,FlagH=0]
+
+00 111 110 // LD A,0x80
+10 000 000
+
+11 101 101 // NEG
+01 000 100 [A=10 000 000,FlagC=1,FlagZ=0,FlagPV=1,FlagS=1,FlagN=1,FlagH=0]
+
+00 111 110 // LD A,0x49
+01 001 001
+
+11 101 101 // NEG
+01 000 100 [A=10 110 111,FlagC=1,FlagZ=0,FlagPV=0,FlagS=1,FlagN=1,FlagH=1]
+
+ff fff fff

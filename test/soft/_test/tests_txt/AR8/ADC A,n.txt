@@ -1,0 +1,17 @@
+00 111 110 // LD A,0x80
+10 000 000
+
+00 110 111 // SCF
+
+00 111 111 // CCF
+
+11 001 110 // ADC A,0x80
+10 000 000 [A=00 000 000,FlagC=1,FlagZ=1,FlagPV=1,FlagS=0,FlagN=0,FlagH=0]
+
+11 001 110 // ADC A,0xf
+00 001 111 [A=00 010 000,FlagC=0,FlagZ=0,FlagPV=0,FlagS=0,FlagN=0,FlagH=1]
+
+11 001 110 // ADC A,0x80
+10 000 000 [A=10 010 000,FlagC=0,FlagZ=0,FlagPV=0,FlagS=1,FlagN=0,FlagH=0]
+
+ff fff fff

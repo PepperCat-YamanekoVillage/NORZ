@@ -1,0 +1,4 @@
+Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
+J1,MEGA BOTTOM,MEGA2560_PRO_MINI,35.0,-30.865,180.0,bottom
+J2,Screw_Terminal_01x02,TerminalBlock_bornier-2_P5.08mm,62.54,-4.0,0.0,top
+U1,0.5K-DHQX-60PWB,FPC-SMD_60P-P0.50_HDGC_0.5K-DHQX-60PWB,75.25,-30.0,270.0,bottom

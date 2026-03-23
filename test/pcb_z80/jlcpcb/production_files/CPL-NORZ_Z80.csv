@@ -1,0 +1,5 @@
+Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
+C1,100nF,C_0603_1608Metric,27.5,-30.25,0.0,top
+C2,22nF,C_0603_1608Metric,27.5,-28.75,0.0,top
+U1,0.5K-DHQX-60PWB,FPC-SMD_60P-P0.50_HDGC_0.5K-DHQX-60PWB,4.95,-27.5,-90.0,top
+U2,Z84C00xxP,DIP-40_W15.24mm,27.62,-27.13,0.0,top
